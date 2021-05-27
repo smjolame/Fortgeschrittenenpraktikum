@@ -25,16 +25,6 @@ build/main.pdf: FORCE | build
 	  --halt-on-error \
 	main.tex
 
-build/Vor.pdf: FORCE | build
-	  TEXINPUTS=build: \
-	  BIBINPUTS=build: \
-	latexmk \
-	  --lualatex \
-	  --output-directory=build \
-	  --interaction=nonstopmode \
-	  --halt-on-error \
-	Vorbereitung.tex
-
 
 build:
 	mkdir -p build

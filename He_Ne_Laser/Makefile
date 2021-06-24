@@ -6,11 +6,18 @@ plots: FORCE | build
 	  TEXINPUTS="$$(dirname "$$(pwd)")/default:" \
 	python plot.py
 	
-Vor: FORCE | build
+vor: FORCE | build
 	  MATPLOTLIBRC="$$(dirname "$$(pwd)")/default/matplotlibrc" \
 	  TEXINPUTS="$$(dirname "$$(pwd)")/default:" \
-	python Vorbereitung.py
-
+	python vorbereitung.py
+stab: FORCE | build
+	  MATPLOTLIBRC="$$(dirname "$$(pwd)")/default/matplotlibrc" \
+	  TEXINPUTS="$$(dirname "$$(pwd)")/default:" \
+	python stabilität.py
+mod: FORCE | build
+	  MATPLOTLIBRC="$$(dirname "$$(pwd)")/default/matplotlibrc" \
+	  TEXINPUTS="$$(dirname "$$(pwd)")/default:" \
+	python moden.py
 
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
 build/main.pdf: 

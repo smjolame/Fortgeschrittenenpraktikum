@@ -5,10 +5,89 @@ Alle Berechnungen werden mit dem Programm \glqq Numpy" \cite{numpy}, die Unsiche
 \subsection{Überprüfung der Stabilitätsbedingung}
 
 Im Folgendem wird die in der Theorie \ref{sec:Theorie} gezeigte Stabilitätsbedingung für die beiden Spiegelkonstellationen übeprüft.
-Die aus der Messung folgenden Intensitätswerte für die Konkav-Konkav- und die Plan-Konkav-Konstellation sind jeweils den Tabellen \ref{tab:kon_kon} und \ref{tab:plan_kon} zu entnehmen.
+Die aus der Messung folgenden Intensitätswerte für die Konkav-Konkav- und die Plan-Konkav-Konstellation sind jeweils den Tabellen \ref{tab:kon_kon} und \ref{tab:plan_kon} zu entnehmen. 
+Zur besseren Übersicht sind die Messergebnisse in den Graphen \ref{fig:kon} und \ref{fig:plan} dargestellt. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/kon.pdf}
+    \caption{Intensitätswerte konkav-konkav.}
+    \label{fig:kon}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plan.pdf}
+    \caption{Intensitätswerte plan-konkav.}
+    \label{fig:plan}
+\end{figure}
+
+Die theoretischen Stabilitätsgrenzen sind an den jeweilgen Stellen markiert. 
+Es fällt auf, dass bei der Konkav-Konkav-Konstellation die Intensitätswerte für Abstände hinter der theoretischen Stabilitätsgrenze deutlich geringer sind als für kleiner Spiegelabstände. 
+So eine Tendenz ist in Abbildung \ref{fig:plan} nicht zu erkennen, da die Intensitätswerte der jeweilgen Spiegelabstände nicht bis zur Stabilitätsgrenze fortgesetzt gemessen sind. 
+
+
+\subsection{Beobachtung der TEM-Moden}
  
+Die beiden gemessenen Intesitätsverteilungen sind in den Abbildungen \ref{fig:TEM00} und \ref{fig:TEM01} dargestellt. Die Messwerte für die TEM$_{00}$-Mode sind der Tabelle \ref{tab:TEM00} und TEM$_{01}$ der Tabelle \ref{tab:TEM01} zu entnehmen.
 
 
+\subsubsection{TEM$_{00}$-Mode}
+
+Die Intesitätsverteilung der jeweiligen Moden ergibt nach REF für $m=0$ und $n=0$ eine Gaußfunktion
+
+\begin{equation}
+    I_{00} = I_0 \exp{\left(-\frac{(L-a)^2}{\omega^2}\right)}
+\end{equation} 
+
+welche als Fitfunktion den Daten der TEM$_{00}$ angepasst wird.
+Daraus ergeben sich die jeweilgen Parameter zu
+\begin{align*}
+    I_0 &= \SI{18.0(1)}{\micro\watt}, \\
+    a &= \SI{0.109(033)}{\milli\m} \\
+    \text{und} \: \omega &= \SI{7.25(05)}{\milli\m}
+\end{align*}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/TEM_00.pdf}
+    \caption{Intensitätswerte der TEM$_{00}$-Mode.}
+    \label{fig:TEM00}
+\end{figure}
+
+
+\subsubsection{TEM$_{01}$-Mode}
+
+Erneut wird gemäß REF eine Funktion in die Intesitätsverteilung gefittet. Diesemal ergibt sich für $n=0$ und $m=1$ 
+eine Fitfunktion gemäß
+
+\begin{equation}
+    I_{01} = frac{8L^2}{\omega^2} \exp{\left(-\frac{(L-a)^2}{\omega^2} \right)} .
+\end{equation}
+
+Aus den Messwerten ergben sich dann die Parameter zu
+
+\begin{align*}
+    I_0 &= \SI{8.98(14)}{\micro\watt}, \\
+    a &= \SI{2.4(5)}{\milli\m} \\
+    \text{und} \: \omega &= \SI{1.78(05)}{\milli\m}.
+\end{align*}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/TEM_01.pdf}
+    \caption{Intensitätswerte der TEM$_{01}$-Mode.}
+    \label{fig:TEM01}
+\end{figure}
+
+\subsection{Untersuchung der Polarisation}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/polar.pdf}
+    \caption{Intensitätswerte bei drehbarem Polarisationsfilter.}
+    \label{fig:pol}
+\end{figure}
 
 %Messwerte: Alle gemessenen physikalischen Größen sind übersichtlich darzustellen.
 %

@@ -6,7 +6,7 @@ abst_plan , I_plan = np.genfromtxt('data/plan_kon.txt', delimiter=',',unpack=Tru
 linspce = np.linspace(0,6,100)
 
 
-plt. plot(abst_kon, I_kon,'o', label='Konkav Konkav')
+plt. plot(abst_kon, I_kon,'o', label='Messwerte')
 plt.xlabel(r'$L \mathbin{/}\si{\centi\m}$')
 plt.ylabel(r'$I \mathbin{/}\si{\milli\watt}$')
 plt.axvline(x=140, ls='--',c='k', alpha=0.9,label='theo. Stabilitätsgrenze')
@@ -15,7 +15,7 @@ plt.grid()
 plt.savefig('build/kon.pdf')
 plt.clf()
 
-plt. plot(abst_plan, I_plan,'o', label='Plan Konkav')
+plt. plot(abst_plan, I_plan,'o', label='Messwerte')
 plt.xlabel(r'$L \mathbin{/}\si{\centi\m}$')
 plt.ylabel(r'$I \mathbin{/}\si{\milli\watt}$')
 plt.axvline(x=140*2, ls='--',c='k', alpha=0.9,label='theo. Stabilitätsgrenze')

@@ -11,7 +11,7 @@ L_00 , I_00 = np.genfromtxt('data/TEM_00.txt', delimiter=',', unpack=True)
 
 
 def I_00_fit(L,a,I_0,w):
-    return I_0*np.exp(-(L-a)**2/w)
+    return I_0*np.exp(-(L-a)**2/w**2)
 
 
 
@@ -19,7 +19,7 @@ def I_00_fit(L,a,I_0,w):
 L_01 , I_01 = np.genfromtxt('data/TEM_01.txt', delimiter=',', unpack=True)
 
 def I_01_fit(L,a,I_0,w):
-    return 8*(L-a)**2*I_0/(w**2)*np.exp(-(L-a)**2/w)
+    return 8*(L-a)**2*I_0/(w**2)*np.exp(-(L-a)**2/w**2)
 
 
 

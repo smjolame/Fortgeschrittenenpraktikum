@@ -15,6 +15,7 @@ def I_fit(p, p_0, I_0):
 params, cov = curve_fit(I_fit, phi, I)
 p_0 = ufloat(params[0],np.absolute(cov[0][0])**0.5)
 I_0 = ufloat(params[1],np.absolute(cov[1][1])**0.5)
+print(p_0,I_0)
 
 plt.plot(phi, I,'o', label='Messwerte')
 plt.plot(phi_lin, I_fit(phi_lin, p_0.n, I_0.n), label='Fitkurve')

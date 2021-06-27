@@ -11,7 +11,7 @@ b3 = 140 #cm
 g3 = lambda d: 1-d/b3
 
 plt.plot(d_lin,g1*g3(d_lin),label = (r'$g_1 \cdot g_3$'))
-plt.plot(d_lin,g2(d_lin)*g2(d_lin), label = (r'$g_2 \cdot g_2$'))
+# plt.plot(d_lin,g2(d_lin)*g2(d_lin), label = (r'$g_2 \cdot g_2$'))
 plt.plot(d_lin,g2(d_lin)*g3(d_lin), label = (r'$g_2 \cdot g_3$'))
 plt.plot(d_lin,g3(d_lin)*g3(d_lin), label = (r'$g_3 \cdot g_3$'))
 plt.grid()

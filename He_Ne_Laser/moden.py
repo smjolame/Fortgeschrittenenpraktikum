@@ -31,7 +31,7 @@ I_0 = ufloat(params_00[1],np.absolute(cov_00[1][1])**0.5)
 w_0 = ufloat(params_00[2],np.absolute(cov_00[2][2])**0.5)
 print(f'Für I_00:\n a:{a_0},\n I:{I_0},\n w:{w_0}')
 
-params_01, cov_01 = curve_fit(I_01_fit, L_01, I_01,p0=[8,1,4])
+params_01, cov_01 = curve_fit(I_01_fit, L_01, I_01,p0=[8,1,16])
 a_1 = ufloat(params_01[0],np.absolute(cov_01[0][0])**0.5)
 I_1 = ufloat(params_01[1],np.absolute(cov_01[1][1])**0.5)
 w_1 = ufloat(params_01[2],np.absolute(cov_00[2][2])**0.5)

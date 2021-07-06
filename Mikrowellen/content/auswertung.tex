@@ -1,6 +1,160 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 Alle Berechnungen werden mit dem Programm \glqq Numpy" \cite{numpy}, die Unsicherheiten mit dem Modul \glqq Uncertainties" \cite{uncertainties}, die Ausgleichsrechnungen mit dem Modul \glqq Scipy" \cite{scipy} durchgeführt und die grafischen Darstellungen über das Modul \glqq Matplotlib" \cite{matplotlib} erstellt.
+
+
+
+
+
+
+
+
+
+
+
+\begin{table}
+    \centering
+    \caption{}
+    \label{tab:}
+    \sisetup{table-format = 1.2}
+    \renewcommand{\arraystretch}{2} 
+    \begin{tabular}{|l c| c| c| c| r|}
+        \hline
+         & & 1. Modus & 2. Modus & 3. Modus & \\
+        \hline
+        Reflektorspannung & $U_0$ & 220 & 140 & 85 & Volt \\
+         & $U_1$ & 210 & 125 & 72 & \\
+         & $U_2$ &  236 & 151 & 99 & \\
+        Amplitude & $A_0$ & 6.4 & 7.35 & 6.2 & Teilstriche \\
+        Frequenz & $f_0$ & 9010 & 9013 & 9018 & $\si{\mega\hertz}$\\
+
+        \hline
+
+    \end{tabular}
+    \renewcommand{\arraystretch}{1} 
+\end{table}
+
+\begin{table}
+    \centering
+    \caption{}
+    \label{tab:}
+    \sisetup{table-format = 1.2}
+    \renewcommand{\arraystretch}{2} 
+    \begin{tabular}{|l |  c| c| c| r|}
+        \hline
+         &  a) & b) & c) & \\
+        \hline
+        Reflektorspannung &  85 & 75 & 90 & Volt \\
+
+        Frequenz & 9018 & 8977 & 9055 & $\si{\mega\hertz}$\\
+
+        \hline
+
+    \end{tabular}
+    \renewcommand{\arraystretch}{1} 
+\end{table}
+
+% \begin{table}
+%     \centering
+%     \caption{}
+%     \label{tab:plan_kon}
+%     \sisetup{table-format = 4}
+%     \begin{tabular}{ l | S S S S[table-format = 1.2] S}
+%         \toprule
+%         & $V_{0}$ & $V_{1}$ & $V_{2}$ & $A_{0}$ & $f_{0}$  \\
+%         \midrule
+%         \text{1. Modus}  & 220 & 210 & 236 & 6.50 & 9010 \\
+%         \text{2. Modus}  & 140 & 125 & 151 & 7.35 & 9013 \\
+%         \text{3. Modus}  & 85 & 71 & 99 & 6.20 & 9018 \\
+
+%         \bottomrule
+
+%     \end{tabular}
+% \end{table}
+
+
+\begin{table}
+    \centering
+    \caption{}
+    \label{tab:}
+    \sisetup{table-format = 2.1}
+    \begin{tabular}{S[table-format = 4] S S S}
+        \toprule
+         & \multicolumn{3}{c}{Ort des Minimums $x \mathbin{/} \si{\milli\m}$} \\ 
+         \cmidrule(lr){2-4}
+        $f \mathbin{/} \si{\mega\hertz}$ &  $x_{1}$ & $x_{2}$ & $x_{3}$ \\
+        \midrule
+        9006 & 48.1 & 72.5 & 97.0 \\
+        \bottomrule
+
+    \end{tabular}
+\end{table}
+
+
+\begin{table}
+    \centering
+    \caption{}
+    \label{tab:}
+    \sisetup{table-format = 1.2}
+    \begin{tabular}{S[table-format = 2] S S }
+        \toprule
+        \text{Dämpfung} $ P \mathbin{/} \si{\decibel}$ & \text{Mikrometereinstellung} / $\si{\milli\m}$ &  \text{Herstellerangabe} / $\si{\milli\m}$ \\
+ 
+        \midrule
+        0 & 2.69 & 0.00  \\
+        2 & 2.93 & 0.90 \\
+        4 & 3.11 & 1.45 \\
+        6 & 3.27 & 1.75 \\
+        8 & 3.44 & 2.03 \\
+        10 & 3.58 & 2.28 \\
+
+        \bottomrule
+
+    \end{tabular}
+\end{table}
+
+\begin{table}
+    \centering
+    \caption{}
+    \label{tab:}
+    \sisetup{table-format = 1.2}
+    \begin{tabular}{S[table-format = 1] S }
+        \toprule
+        \text{Sondentiefe} / $\si{\milli\m}$ & \text{Dämpfung} / $\si{\decibel}$ \\
+ 
+        \midrule
+        0 & 1.00 \\
+        3 & 1.11 \\
+        5 & 1.55 \\
+        7 & 3.20 \\
+        9 & 9.50 \\
+
+        \bottomrule
+
+    \end{tabular}
+\end{table}
+
+
+
+
+\begin{table}
+    \centering
+    \caption{}
+    \label{tab:}
+    \sisetup{table-format = 2.1}
+    \begin{tabular}{S S S S}
+        \toprule
+         {$d_1 \mathbin{/} \si{\milli\m}$} & {$d_2 \mathbin{/} \si{\milli\m}$} & {$\text{1. Min} \mathbin{/} \si{\milli\m}$}  &  {$\text{2. Min} \mathbin{/} \si{\milli\m}$} \\
+ 
+        \midrule
+        74.0 & 72.5  & 108.9 & 84.5 \\
+        \bottomrule
+
+    \end{tabular}
+\end{table}
+
+
+
 %Messwerte: Alle gemessenen physikalischen Größen sind übersichtlich darzustellen.
 %
 %Auswertung:

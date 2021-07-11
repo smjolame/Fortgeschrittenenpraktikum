@@ -5,7 +5,32 @@ Alle Berechnungen werden mit dem Programm \glqq Numpy" \cite{numpy}, die Unsiche
 
 \subsection{Untersuchung des Hohleiterfeldes}
 
+Die vom Oszillografen abgelesenen Werte sind in Tabelle \ref{tab:mod} einsehbar. 
+Aus diesen Werten lässt sich ein Modus-Diagramm erstellen. Dazu werden jeweils in die Daten eine Funktion gemäß einer Parabel
+\begin{equation}
+    f(U) = aU^2+bU+c
+\end{equation}
+gelegt. 
+So ergeben sich die in Abbildung \ref{fig:mode} dargestellten Moden. Die aus dem Fit erhaltenen Parameter lauten für den jeweils i-ten Modus:
+\begin{align*}
+    a_1 & = \SI{-0.04}{\per\square\volt} \\
+    b_1 & = \SI{17.84}{\per\volt} \\
+    c_1 & = \num{-1982.4} \\
+    a_2 & = \SI{-0.0445}{\per\square\volt} \\
+    b_2 & = \SI{ 12.2945}{\per\volt} \\
+    c_2 & = \num{-840.7955} \\
+    a_3 & = \SI{-0.0341}{\per\square\volt} \\
+    b_3 & = \SI{5.8253}{\per\volt} \\
+    c_3 & = \num{-242.8220}
+\end{align*}
 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/mode.pdf}
+    \caption{Modus-Diagramm der drei Moden.}
+    \label{fig:mode}
+\end{figure}
 
 
 
@@ -31,6 +56,25 @@ Alle Berechnungen werden mit dem Programm \glqq Numpy" \cite{numpy}, die Unsiche
     \renewcommand{\arraystretch}{1} 
 \end{table}
 
+
+Aus den Werten der Tabelle \ref{tab:elek} lassen sich die Bandbreite 
+\begin{equation}
+    B = f_c - f_b
+\end{equation}
+und die Abstimm-Empfindlichkeit 
+\begin{equation}
+    A = \frac{B}{V_c-V_b}
+\end{equation}
+zu 
+\begin{equation*}
+    B = \SI{78}{\mega\hertz}
+\end{equation*}
+und 
+\begin{equation*}
+    A = \SI{5.2}{\mega\hertz\per\volt}
+\end{equation*}
+bestimmen.
+
 \begin{table}
     \centering
     \caption{Reflektorspannungen in Abhängigkeit der drei Kurvenpositionen.}
@@ -50,6 +94,22 @@ Alle Berechnungen werden mit dem Programm \glqq Numpy" \cite{numpy}, die Unsiche
     \end{tabular}
     \renewcommand{\arraystretch}{1} 
 \end{table}
+
+
+\subsection{Frequenz, Wellenlänge und Dämpfung}
+
+Aus den Werten der Tabelle \ref{tab:wel} lässt sich die Wellenlänge über den zweifachen Abstand benachbarter Minima berechnen.
+Über den Mittelwert dieser Ergebnisse ergibt sich eine Wellenlänge von
+\begin{equation}
+    \lambda_h = \SI{48.9(1)}{\milli\m} .
+\end{equation}
+
+Nach \eqref{eqn:f} lässt sich die Frequenz zu
+\begin{equation}
+    f = \SI{8983(13)}{\mega\hertz}
+\end{equation}
+bestimmen.
+
 
 % \begin{table}
 %     \centering
@@ -88,6 +148,27 @@ Alle Berechnungen werden mit dem Programm \glqq Numpy" \cite{numpy}, die Unsiche
 \end{table}
 
 
+Die Ergebnisse der Dämpfungsmessungen sind in Tabelle \ref{tab:daempf} dargestellt. Aus den Werten der Herstellerangaben lässt sich die 
+Eichkurve der Dämpfung bestimmen. Als Fit-Funktion wird dabei eine Parabel der Form
+\begin{equation}
+    P(x) = ax^2 + bx + c 
+\end{equation}
+verwendet.
+Das Ergebnis dieser Ausgleichsrechnung ist in Abbildung \ref{fig:daempf_nah} dargestellt.
+Die Parameter der Ausgleichsrechnung ergeben sich zu:
+\begin{align}
+    a &= \SI{1.7598(1515)}{\decibel\per\square\milli\m} \\
+    b &= \SI{0.3299(3570)}{\decibel\per\milli\m} \\
+    c &= \SI{0.0516(1881)}{\decibel}
+\end{align}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/daempf_nah.pdf}
+    \caption{Eichkurve nach Hersteller in Form einer Fit-Parabel.}
+    \label{fig:daempf_nah}
+\end{figure}
+
 \begin{table}
     \centering
     \caption{Daten der Dämpfungsmessungen.}
@@ -109,6 +190,69 @@ Alle Berechnungen werden mit dem Programm \glqq Numpy" \cite{numpy}, die Unsiche
 
     \end{tabular}
 \end{table}
+
+Werden in diesen Plot die Dämpfungen in Abhängigkeit der gemessen Mikrometereinstellungen aufgetragen, so liegen alle Messpunkte in einem 
+konstanten Abstand unterhalb der Herstellerangabe. Über eine Korrektur von $\SI{14}{\decibel}$ nach oben lässt sich erkennen, dass die gemessen Werte gut dem Verlauf der Parabel folgen.
+
+Die Messwerte und die verschobenen Werte sind in Abbildung \ref{fig:daempf_weit} einzusehen und zur besseren Übersicht sind die Korrigierten Werte nocheinmal in Tabelle \ref{tab:daempf_korr} aufgeführt.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/daempf_weit.pdf}
+    \caption{Messwerte und auf die Eichkurve verschobenen Werte.}
+    \label{fig:daempf_weit}
+\end{figure}
+
+
+\begin{table}
+    \centering
+    \caption{Daten der Dämpfungsmessungen nach Korrektur.}
+    \label{tab:daempf_korr}
+    \sisetup{table-format = 1.2}
+    \begin{tabular}{S[table-format = 2] S S }
+        \toprule
+        \text{Dämpfung} $ P \mathbin{/} \si{\decibel}$ & \text{Mikrometereinstellung} / $\si{\milli\m}$ &  \text{Herstellerangabe} / $\si{\milli\m}$ \\
+ 
+        \midrule
+        14 & 2.69 & 2.72 \\
+        16 & 2.93 & 2.92 \\
+        18 & 3.11 & 3.10 \\
+        20 & 3.27 & 3.27 \\
+        22 & 3.44 & 3.44 \\
+        24 & 3.58 & 3.60 \\
+
+        \bottomrule
+
+    \end{tabular}
+\end{table}
+
+
+\subsection{Stehwellen-Messungen}
+
+Die Messergebnisse der SWR-Meter Methode und der 3-\si{\decibel}-Methode sind in den Tabellen \ref{zab:swr} und \ref{tab:3db} aufgetragen.
+
+
+
+Aus den Ergebnissen der 3-\si{\decibel}-Methode lässt sich dann über \eqref{eqn:3db} das SWR zu
+\begin{equation*}
+    S = 10.42
+\end{equation*}
+berechnen.
+
+Die gemessenen Werte der Abschwächer-Methode sind 
+\begin{equation*}
+    A_1 = \SI{20.0}{\decibel}
+\end{equation*}
+und
+\begin{equation*}
+    A_2 = \SI{43.5}{\decibel} .
+\end{equation*}
+Mit diesen Werten kann über den Zusammenhang \eqref{eqn:abschw} das SWR zu
+\begin{equation}
+    S = 14.96
+\end{equation}
+bestimmt werden.
+
 
 \begin{table}
     \centering

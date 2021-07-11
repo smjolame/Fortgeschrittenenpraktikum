@@ -5,7 +5,7 @@
 
 \subsection{Mikrowellen}
 
-Mikrowellen sind elektromagnetische Wellen mit einer Wellenlänge von ca. $\SI{30}{\centi\m}$ bis $\SI{0.3}{\milli\m}$. Da aber die Wirkung der Strahlungseffekte innerhalb eines Schaltungs-Systems von dem Verhältnis zwischen der Größenordung des Systems und der Wellenlänge der vorkommenden Strahlung abhängt, gilt der Bereich der Mikrowellentechnik für Wellenlängen die sehr viel kleiner als die Abmessungen des Systems sind. Mikrowellen werden vielseitig eingesetzt. Sie dienen z.B. in der Luft- und Schiffahrt der Orientierung und der Detektion von anderen Fahrzeugen. Außerdem kommen sie in der Forschung bei Material- und Plasmauntersuchungen vor. 
+Mikrowellen sind elektromagnetische Wellen mit einer Wellenlänge von ca. $\SI{30}{\centi\m}$ bis $\SI{0.3}{\milli\m}$. Da aber die Wirkung der Strahlungseffekte innerhalb eines Schaltungs-Systems von dem Verhältnis zwischen der Größenordung des Systems und der Wellenlänge der vorkommenden Strahlung abhängt, gilt der Bereich der Mikrowellentechnik für Wellenlängen die sehr viel kleiner als die Abmessungen des Systems sind. Mikrowellen werden vielseitig eingesetzt. Sie dienen z.B. in der Luft- und Schiffahrt der Orientierung und der Detektion von anderen Fahrzeugen. Außerdem kommen sie in der Forschung bei Material- und Plasmauntersuchungen zum Einsatz. 
 
 \subsection{Hohlleiter}
 
@@ -54,7 +54,7 @@ lässt sich die Frequenz und Amplitude des Klystrons verändern. Die Abhängigke
 
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{Bilder/reflektor.PNG}
+    \includegraphics[width=0.8\textwidth]{Bilder/reflektor.PNG}
     \caption{Ausgangsleistung in Abhängigkeit der Reflektorspannung.}
     \label{fig:reflektor}
 \end{figure}
@@ -70,18 +70,20 @@ berechnen. Wobei der Index $r$ für die Feldstärke der reflektierten und $i$ f�
 
 Im Rahmen des Versuches wird zum Messen des SWR die sogenannte "$3 \si{\decibel}$"- Methode angewandt. Aus den dort gemessen Werten lässt sich das SWR über
 \begin{equation}
+    \label{eqn:3db}
     S = \sqrt{1+\frac{1}{\sin^2\left(\frac{\pi(d_1-d_2)}{\lambda_h}\right)}}
 \end{equation}
 bestimmen. 
 Über die ebenso verwendete "Abschwächer-Methode" lässt sich das SWR über
 \begin{equation}
+    \label{eqn:abschw}
     S = 10^{\frac{A_2-A_1}{20}}
 \end{equation}
 berechnen.
 Beide Methoden werden in der Durchführung \ref{sec:Durchführung} näher beschrieben.
 
 
-\subsection{Einge Bauteile und ihre Funktion}
+\subsection{Einige Bauteile und ihre Funktion}
 
 \begin{figure}
     \label{fig:bauteile}
@@ -90,12 +92,17 @@ Beide Methoden werden in der Durchführung \ref{sec:Durchführung} näher beschr
     \qquad
     \subfloat[][Dämfungsglied]{\includegraphics[width=0.4\linewidth]{Bilder/daempfer.PNG}}
     \qquad
-    \subfloat[][]{\includegraphics[width=0.5\linewidth]{Bilder/schieber.PNG}}
+    \subfloat[][Gleitschraubentransformator]{\includegraphics[width=0.5\linewidth]{Bilder/schieber.PNG}}
+    \subfloat[][Frequenzmesser]{\includegraphics[width=0.3\linewidth]{Bilder/frequenz.PNG}}
     \caption{Einige Bauteile.}
   \end{figure}
 
 Die für den Versuch wichtigsten Bauteile sind neben dem Klystron die in Abbildung \ref{fig:bauteile} dargestellten Komponenten.
-Das \textbf{Dämpfungsglied} dient der Dämpung der Leistung des Feldes. Über eine verschiebare Widerstandsfolie lässt sich die stärke der Dämpfung einstellen. 
+Der \textbf{Abschluss} absorbiert, mit Hilfe eines Absorptionsmaterial, beinahe die gesamte Leistung. 
+Das \textbf{Dämpfungsglied} dient der Dämpung der Leistung des Feldes. Über eine verschiebare Widerstandsfolie lässt sich die Stärke der Dämpfung einstellen. 
+Der \textbf{Gleitschraubentransformator} ist ein Bauteil, welches zum Anpassen eines fehlangepassten Kreises verwendet wird. Die Anpassung wird dabei durch einen variabel verschieb- und senkbaren Sitft realisiert, welcher in der Leitung als beinahe reiner Blindwiderstand wirkt.
+Zum Messen der Frequenzen des Systems wird ein \textbf{Frequenzmesser} verwendet. Dieser besteht aus einem Hohlraumresonator mit verstellbarem Volumen. Befindet sich der Frequenzmesser in dem System, so entzieht der Hohlraumresonator die meiste Leistung, wenn die Resonanzfrequenz des Resonators der der im System vorhandenen Frequenz entspricht. So kann also bei maximalem Leistungsentzug auf die Frequenz im System rückgeschlossen werden.
+
 
 
 

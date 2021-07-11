@@ -27,6 +27,12 @@ perr = np.sqrt(np.diag(cov))
 params_err_p = np.array([params[0]+perr[0],params[1]+perr[1],params[2]+perr[2]])
 params_err_m = np.array([params[0]-perr[0],params[1]-perr[1],params[2]-perr[2]])
 
+#Berechnung der Herstellerangabe nach Korrektur:
+def umkehr(a,b,c,d):
+    return -b/(2*a)+np.sqrt(b**2/(4*a**2)-(c-d)/a)
+
+her = umkehr(*params, P+14)
+print('Herstellerangabe:',her)
 
 plt.plot(einst,P,'x', label = 'Messwerte', c='r')
 # Einfügen einer Korrektur von 14, damit die Messwerte auf die Parabel passen
@@ -49,3 +55,4 @@ plt.ylabel(r'$P \mathbin{/} \si{\decibel}$')
 plt.grid()
 plt.legend()
 plt.savefig('build/daempf_nah')
+print('params', params, perr)

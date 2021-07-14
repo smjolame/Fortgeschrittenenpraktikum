@@ -12,7 +12,25 @@ from scipy.stats import sem
 def abw(exact,approx):
     return (exact-approx)*100/exact  #Abweichnung
 
+def fitfunc(I,a,b,c,d):
+    return a*I**3+b*I**2+c*I+d
 
+I_lin = np.linspace(0,5.5)
+
+I , B = np.genfromtxt('data/b_feld.txt', delimiter=',', unpack=True)
+params, cov = curve_fit(fitfunc, I, B)
+perr = np.sqrt(np.diag(cov))
+
+plt.plot(I, B,'x', label='Messwerte')
+plt.plot(I_lin, fitfunc(I_lin,*params), label='Kurve aus Ausgleichsrechnung')
+plt.legend()
+plt.xlabel(r'$I \mathbin{/} \si{\ampere}$')
+plt.ylabel(r'$B \mathbin{/} \si{\milli\tesla}$')
+plt.grid()
+plt.savefig('build/b_kurve.pdf')
+
+params = uarray(params, perr)
+print('verwendete Ausgleichsfunktion: B(I)=aI^3+bI^2+cI+d\n mit den Parametern (a,b,c,d):\n', params)
 ##Curvefit
 #def BeispielFunktion(x,a,b):
 #    return a*x+b 

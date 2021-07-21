@@ -12,7 +12,7 @@ from scipy.stats import sem
 def abw(exact,approx):
     return (exact-approx)*100/exact  #Abweichnung
 
-#verz ist die relative Verzögerung der PMP
+#verz ist die relative Verzögerung der PMP (ns)
 #I die Anzahl Impule pro Sekunde
 verz , I = np.genfromtxt('data/verz.txt', delimiter=',', unpack=True)
 
@@ -25,18 +25,37 @@ I_uarray = uarray(I, I_err)
 #Bereich des Plateaus
 anf = 11
 end = 22
-verz_lin = np.linspace(verz[anf],verz[end])
+verz_lin1 = np.linspace(verz[anf],verz[end])
 
 params1, cov1 = curve_fit(plat, verz[anf:end], I[anf:end],sigma=I_err[anf:end],p0=[2])
 
+h_halb = params1/2
+
+
+halb_1 = -7
+halb_2 = 7
+
+verz_halb1 = verz[7]
+verz_halb2 = verz[25]
+verz_lin2 = np.linspace(verz_halb1,verz_halb2)
+
+halbwertbreite = np.abs(verz_halb1-verz_halb2)
+print('Halbwertsbreite:', halbwertbreite)
 plt.figure()
 plt.errorbar(verz,I, yerr=I_err, fmt='_',capsize=3, label ='Messwerte')
-plt.plot(verz_lin, plat(verz_lin,*params1), ls = '--', label = 'Plateau')
+plt.plot(verz_lin1, plat(verz_lin1,*params1), ls = '--', label = 'Plateau')
+plt.plot(verz_lin2, plat(verz_lin2,h_halb), ls = '--', label = 'Halbwertbreite')
+plt.vlines(x = verz_halb1, ymin = 0, ymax = params1 + 10, ls ='--', color='k')
+plt.vlines(x = verz_halb2, ymin = 0, ymax = params1 + 10, ls ='--', color='k')
+plt.ylim(0)
 plt.grid()
-plt.xlabel('T_vz ns')
-plt.ylabel('Impulsrate')
+plt.xlabel(r'$T_{VZ} \mathbin{/} \si{\nano\s}$')
+plt.ylabel(r'$I \mathbin{/} \si{\per\s}$')
 plt.legend()
-plt.show()
+plt.savefig('build/halbwert.pdf')
+print('Höhe Plateau:', params1)
+print('Ränder der Halbwertsbreite:' ,verz[7], verz[25])
+
 
 # T ist T_vz in 0.1 micro sekunden
 # K ist die Nummer des Kanals
@@ -44,7 +63,7 @@ T , K = np.genfromtxt('data/Tvz_kanal.txt', delimiter=',', unpack=True)
 
 T = np.array(T)
 T = T * 0.1
-print(T,K)
+
 K_lin = np.linspace(0, 100, 100)
 
 def gerade(x,a,b):
@@ -52,14 +71,64 @@ def gerade(x,a,b):
 params2, cov2 = curve_fit(gerade, K, T,p0=[1,1])
 
 perr2 = np.sqrt(np.diag(cov2))
-params_err2 = uarray(params2, perr2)
+params2_err2 = uarray(params2, perr2)
+print('Parameter der Ausgleichsgerade:', params2_err2)
+
 plt.plot(K,T, 'kx', label = 'Messwerte')
-plt.plot(K, gerade(K,*params2), label = 'Ausgleichsgerade')
+plt.plot(K_lin, gerade(K_lin,*params2), label = 'Ausgleichsgerade')
 plt.grid()
 plt.xlabel('Kanal')
-plt.ylabel('t in micro sek')
+plt.ylabel(r'$t \mathbin{/} \si{\micro\s}$')
+plt.ylim(0)
 plt.legend()
-plt.show()
+plt.savefig('build/kalibri.pdf')
+
+
+#Lebensdauer Kram
+N_start = 3256768
+N_stopp = 17775
+T_mess = 175726 #s
+kanal = np.genfromtxt('data/kanaele.txt', unpack=True)
+
+T_such = 20 *10**(-6) #s
+anzahl_kanaele = len(kanal)
+anzahl_kanaele_gef = len(kanal[kanal>0])
+print('Kanäle:',anzahl_kanaele)
+print('Kanäle gefüllt:',anzahl_kanaele_gef)
+nu = N_start/T_mess
+print('nu:',nu)
+P_1 = T_such * nu * np.exp(T_such*nu)
+print('P(1):',P_1)
+N_Untergrund = N_start * P_1
+print('Anzahl Fehlmessungen:', N_Untergrund)
+I_Untergrund = N_Untergrund/anzahl_kanaele_gef 
+print('Untergrundrate pro Kanal:', I_Untergrund)
+
+t = gerade(range(len(kanal)), *params2)
+t_lin = np.linspace(0,15)
+def N(t,N_0,lamb,I):
+    return N_0*np.exp(-lamb*t)+I
+
+kanal_bereinigt = kanal[5:]
+
+kanal_bereinigt = np.append(kanal[1], kanal_bereinigt)
+
+cut = 132
+params3, cov3 = curve_fit(N, t[:cut] , kanal_bereinigt[:cut] ,p0=[400,0.5,10])
+params3_err3 = uarray(params3, np.sqrt(np.diag(cov3)))
+
+
+plt.errorbar(t[:cut], kanal[:cut], yerr = np.sqrt(kanal[:cut]),fmt='_',capsize=3, label ='Messwerte')
+plt.plot(t_lin, N(t_lin, *params3))
+plt.yscale('log')
+plt.xlabel(r'$t \mathbin{/} \si{\micro\s}$')
+plt.ylabel(r'$N$')
+plt.grid()
+#plt.xlim(0,20)
+plt.savefig('build/lebensdauer.pdf')
+
+print('Parameter der Fitfunktion (N_0, lamb, I):', params3_err3)
+
 ##Curvefit
 #def BeispielFunktion(x,a,b):
 #    return a*x+b 

@@ -111,7 +111,7 @@ plt.grid()
 plt.savefig('build/lebensdauer.pdf')
 plt.clf()
 
-
+print('Lebensdauer:', 1/params3_err3[1])
 ##Curvefit
 #def BeispielFunktion(x,a,b):
 #    return a*x+b 

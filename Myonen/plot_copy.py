@@ -101,7 +101,7 @@ params3_err3 = uarray(params3, np.sqrt(np.diag(cov3)))
 print('Parameter der Fitfunktion (N_0, lamb, I):', params3_err3)
 
 plt.errorbar(t[:cut], kanal[:cut],c = 'k', yerr = np.sqrt(kanal[:cut]),fmt='_',capsize=3, label ='Messwerte', ecolor = 'y' )
-plt.plot(t_lin, N(t_lin, *params3), label = 'Ausgleichskurve', c = 'b')
+plt.plot(t_lin, N(t_lin, params3[0],params3[1], 8.1), label = 'Ausgleichskurve', c = 'b')
 plt.yscale('log')
 plt.xlabel(r'$t \:/\: \mu s $' )
 plt.ylabel(r'$N$')
@@ -110,8 +110,12 @@ plt.grid()
 #plt.xlim(0,20)
 plt.savefig('build/lebensdauer.pdf')
 plt.clf()
+tau = 1/params3_err3[1]
+print('Lebensdauer:', tau)
 
-print('Lebensdauer:', 1/params3_err3[1])
+lebensdauer_lit = 2.197 #micro sekunden
+print('Summer der Stoppsiganel aus VKA:', sum(kanal))
+print('Abweichunge der Lebendauer:', abw(lebensdauer_lit,tau))
 ##Curvefit
 #def BeispielFunktion(x,a,b):
 #    return a*x+b 

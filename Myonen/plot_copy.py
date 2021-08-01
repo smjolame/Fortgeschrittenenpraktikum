@@ -42,18 +42,7 @@ verz_lin2 = np.linspace(verz_halb1,verz_halb2)
 halbwertbreite = np.abs(verz_halb1-verz_halb2)
 print('Halbwertsbreite:', halbwertbreite)
 
-plt.errorbar(verz,I, yerr=I_err, fmt='_',capsize=3, label ='Messwerte')
-plt.plot(verz_lin1, plat(verz_lin1,*params1), ls = '--', label = 'Plateau')
-plt.plot(verz_lin2, plat(verz_lin2,h_halb), ls = '--', label = 'Halbwertsbreite')
-plt.vlines(x = verz_halb1, ymin = 0, ymax = params1 + 10, ls ='--', color='k')
-plt.vlines(x = verz_halb2, ymin = 0, ymax = params1 + 10, ls ='--', color='k')
-plt.ylim(0)
-plt.grid()
-plt.xlabel(r'$T_{VZ} \mathbin{/} \si{\nano\s}$')
-plt.ylabel(r'$I \mathbin{/} \si{\per\s}$')
-plt.legend()
-plt.savefig('build/halbwert.pdf')
-plt.clf()
+
 print('Höhe Plateau:', params1)
 print('Ränder der Halbwertsbreite:' ,verz[7], verz[25])
 
@@ -75,15 +64,7 @@ perr2 = np.sqrt(np.diag(cov2))
 params2_err2 = uarray(params2, perr2)
 print('Parameter der Ausgleichsgerade:', params2_err2)
 
-plt.plot(K,T, 'kx', label = 'Messwerte')
-plt.plot(K_lin, gerade(K_lin,*params2), label = 'Ausgleichsgerade')
-plt.grid()
-plt.xlabel(r'Kanal')
-plt.ylabel(r'$t \mathbin{/} \si{\micro\s}$')
-plt.ylim(0)
-plt.legend()
-plt.savefig('build/kalibri.pdf')
-plt.clf()
+
 
 #Lebensdauer Kram
 N_start = 3256768
@@ -106,7 +87,7 @@ I_Untergrund = N_Untergrund/anzahl_kanaele_gef
 print('Untergrundrate pro Kanal:', I_Untergrund)
 
 t = gerade(range(len(kanal)), *params2)
-t_lin = np.linspace(0,15)
+t_lin = np.linspace(0,17)
 def N(t,N_0,lamb,I):
     return N_0*np.exp(-lamb*t)+I
 
@@ -114,23 +95,27 @@ kanal_bereinigt = kanal[5:]
 
 kanal_bereinigt = np.append(kanal[1], kanal_bereinigt)
 
-cut = 132
+cut = 150
 params3, cov3 = curve_fit(N, t[:cut] , kanal_bereinigt[:cut] ,p0=[400,0.5,10])
 params3_err3 = uarray(params3, np.sqrt(np.diag(cov3)))
 print('Parameter der Fitfunktion (N_0, lamb, I):', params3_err3)
 
-# plt.errorbar(t[:cut], kanal[:cut], yerr = np.sqrt(kanal[:cut]),fmt='_',capsize=3, label ='Messwerte')
-# plt.plot(t_lin, N(t_lin, *params3))
-# plt.yscale('log')
-# plt.xlabel(r'$t \mathbin{/} \si{\micro\s}$')
-# plt.ylabel(r'$N$')
-# plt.legend()
-# plt.grid()
-# #plt.xlim(0,20)
-# plt.savefig('build/lebensdauer.pdf')
-# plt.clf()
+plt.errorbar(t[:cut], kanal[:cut],c = 'k', yerr = np.sqrt(kanal[:cut]),fmt='_',capsize=3, label ='Messwerte', ecolor = 'y' )
+plt.plot(t_lin, N(t_lin, params3[0],params3[1], 8.1), label = 'Ausgleichskurve', c = 'b')
+plt.yscale('log')
+plt.xlabel(r'$t \:/\: \mu s $' )
+plt.ylabel(r'$N$')
+plt.legend()
+plt.grid()
+#plt.xlim(0,20)
+plt.savefig('build/lebensdauer.pdf')
+plt.clf()
+tau = 1/params3_err3[1]
+print('Lebensdauer:', tau)
 
-
+lebensdauer_lit = 2.197 #micro sekunden
+print('Summer der Stoppsiganel aus VKA:', sum(kanal))
+print('Abweichunge der Lebendauer:', abw(lebensdauer_lit,tau))
 ##Curvefit
 #def BeispielFunktion(x,a,b):
 #    return a*x+b 

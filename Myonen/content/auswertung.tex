@@ -1,6 +1,197 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 Alle Berechnungen werden mit dem Programm \glqq Numpy" \cite{numpy}, die Unsicherheiten mit dem Modul \glqq Uncertainties" \cite{uncertainties}, die Ausgleichsrechnungen mit dem Modul \glqq Scipy" \cite{scipy} durchgeführt und die grafischen Darstellungen über das Modul \glqq Matplotlib" \cite{matplotlib} erstellt.
+
+
+\subsection{Rahmen der Messung}
+Der Aufbau misst über einen Zeitraum von $T_\text{Dauer} = \SI{175726}{\s}$ (ca. $\SI{48.81}{\hour}$) eine Gesamtzahl von $\num{3256768}$ Startsignalen. Die Stoppsignale belaufen sich auf eine Gesamtzahl von $\num{17775}$. Das MCA besitz $\num{514}$ Kanäle, von denen $\num{142}$ mindestens ein Signal enthalten.  
+
+
+\subsection{Halbwertsbreite}
+
+Die Impulsraten bei systematischer Variation der Verzögerungsleitungen sind in Tabelle \ref{tab:halb} aufgeführt und in Abbildung \ref{fig:halb} ein einem Plot aufgetragen. Die negativen Werte sind stellvertretend für die relative Verzögerung des einen PMT und die positiven für die relative Verzögerung des anderen PMT. Über das setzen eines Plateaus lässt sich die halbe Höhe und damit die Halbwertsbreite berechnen.
+Also lässt sie sich zu
+\begin{equation}
+    t_\text{FWHM} = 7+7 \si{\nano\s} = \SI{14}{\nano\s}
+\end{equation}
+bestimmen.
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{build/halbwert.pdf}
+    \caption{Impulsraten bei systematischer Variation der Verzögerungsleitungen.}
+    \label{fig:halb}
+\end{figure}
+
+\begin{table}[h]
+    \centering
+    \caption{Impulsraten bei jeweiliger Verzögerung.}
+    \label{tab:halb}
+    \sisetup{table-format = 1.2}
+    \begin{tabular}{S[table-format = 1.1] S}
+        \toprule
+        {$\text{Verzögerung} \mathbin{/} \si{\nano\s}$} & {$I \mathbin{/} \si{\per\s}$} \\
+        \midrule
+        -14.0 & 0.1       \\
+        -13.0 & 0.2       \\
+        -12.0 & 0.7       \\
+        -11.0 & 1.8       \\
+        -10.0 & 3.9       \\
+        -9.0 & 6.6        \\
+        -8.0 & 9.1        \\
+        -7.0 & 11.6       \\
+        -6.0 & 13.5       \\
+        -5.0 & 16.0       \\
+        -4.0 & 18.9       \\
+        -3.0 & 21.6       \\
+        -2.0 & 22.2      \\
+        -1.5 & 22.5     \\
+        -1.0 & 22.4       \\
+        -0.5 & 23.7     \\
+        0.0 & 25.1        \\
+        0.5 & 24.6      \\
+        1.0 & 23.7        \\
+        1.5 & 23.9      \\
+        2.0 & 22.3        \\
+        3.0 & 21.8        \\
+        4.0 & 22.6        \\
+        5.0 & 18.0        \\
+        6.0 & 17.3        \\
+        7.0 & 11.9        \\
+        8.0 & 8.8         \\
+        9.0 & 6.8         \\
+        10.0 & 4.7        \\
+        
+        \bottomrule
+
+    \end{tabular}
+\end{table}
+
+
+\subsection{Kalibration des MCA}
+
+Für die Kalibration des MCA wird über die Messwerte der Tabelle \ref{tab:kalib} eine Ausgleichsrechnung durchgeführt. Die Ausgleichsgerade der Form
+\begin{equation}
+    t(K) = aK + b
+\end{equation}
+ist in Abbildung \ref{fig:kalib} dargestellt. Dabei bezeichnet $K$ die Kanal-Nummer. Die sich ergebenen Parameter lauten
+\begin{align*}
+    a &= \SI{0.1144(0003)}{\micro\s} \\
+    b &= \SI{-0.0400(0194)}{\micro\s}
+\end{align*} 
+und damit lässt sich nun der Impulsabstand über die Kanal-Nummer berechnen.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/kalibri.pdf}
+    \caption{Dauer zwischen den Impulsen in Abhängigkeit der Kanal-Nummer mit Ausgleichsgerade.}
+    \label{fig:kalib}
+\end{figure}
+
+
+\begin{table}
+    \centering
+    \caption{Zuordnung der Dauer zwischen den Doppelimpulsen und den jeweiligen Kanälen.}
+    \label{tab:kalib}
+    \sisetup{table-format = 2.0}
+    \begin{tabular}{S S}
+        \toprule
+        {$\text{Impulsdauer} \mathbin{/} \si{\micro\s}$} & {$\text{Kanal-Nummer}$} \\
+        \midrule
+
+        5 & 5       \\
+        10 & 9      \\
+        15 & 13     \\
+        20 & 18     \\
+        25 & 22     \\
+        30 & 27     \\
+        35 & 31     \\
+        40 & 35     \\
+        45 & 40     \\
+        50 & 44     \\
+        55 & 48     \\
+        60 & 53     \\
+        65 & 57     \\
+        70 & 62     \\
+        75 & 66     \\
+        80 & 70     \\
+        85 & 75     \\
+        90 & 79     \\
+        95 & 84     \\
+        100 & 87    \\
+
+        \bottomrule
+
+    \end{tabular}
+\end{table}
+
+\subsection{Untergrundrate}
+
+Da innerhalb der Suchzeit, ein weiters Myon in den Tank eintreten kann, kommt es zu Fehlmessungen. Das Eintreffen des zweiten Myons würde als Zerfall des ersten gedeutet werden.  Um ein Maß für die Häufigkeit dieser Fehlmessungen zu erhalten, wird die Untergrundrate $I_U$ berechnet.
+
+
+Dazu wird zu erst die Anzahl der Myonen bestimmt, welche pro Sekunde in den Tank eintreten. 
+Aus der Messdauer und der Anzahl der Startsignale lässt sich diese Rate auf
+\begin{equation}
+    I_\text{start} = \frac{N_\text{start}}{T_\text{Dauer}} = \SI{18.53}{\per\s}
+\end{equation}
+bestimmen.
+
+Die Wahrscheinlichkeit, dass $k$ weitere Myonen innerhalb der Suchzeit $T_\text{such} = \SI{20}{\micro\s}$ in den Tank eintreffen folgt einer Poisson-Verteilung 
+\begin{equation}
+    P(k) = \frac{(T_\text{such} \cdot I_\text{start})^k}{k!} e^{(T_\text{such} \cdot I_\text{start})} .
+\end{equation}
+
+Die Wahrscheinlichkeit, dass ein weiteres Myon in den Tank eintrifft ergibt sich also zu 
+\begin{equation}
+    P(1) = T_\text{such}\cdot I_\text{start} e^{(T_\text{such} \cdot I_\text{start})} = \SI{0.037}{\percent} .
+\end{equation}
+
+Der Anteil der Fehlmessungen kann dann über 
+\begin{equation}
+    N_\text{fehl} = P(1)N_\text{start} = \num{1208}
+\end{equation}
+bestimmt werden.
+
+Damit lässt sich die Untergrundrate zu 
+\begin{equation}
+    N_U = \frac{N_\text{fehl}}{N_\text{Kanal}} = \num{8.85} \: \frac{\text{Signale}}{\text{Kanal}}
+\end{equation}
+berechnen.
+
+\subsection{Lebensdauer der Myonen}
+
+Aus der Kalibration des MCA und der daraus erhaltenen Umrechnungsforschrifft lassen sich die Anzahl Signal pro Kanal den jeweiligen Lebensdauern der Myonen zuordnen. Die Zerfälle von Teilchen nach einer Zeit $t$ lassen sich generell über die Gleichung
+\begin{equation}
+    N(t) = N_0 e^{-\lambda t} + N_U
+\end{equation}
+
+bestimmen. Dabei bezeichnet $\lambda$ die Zerfallskonstante und $N_U$ den Untergrund. Diese Funktion wird als Ausgleichskurve in die Daten der Abbildung \ref{fig:leben} gelegt. Die jeweiligen Parameter ergeben sich zu
+\begin{align*}
+    N_0 &= \num{695.3420(98890)} \\
+    \lambda &=  \SI{0.4230(0111)}{\per\micro\s} \\
+    N_U &= \num{0.9282(29472)} \: \frac{\text{Signale}}{\text{Kanal}} .
+\end{align*}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/lebensdauer.pdf}
+    \caption{Anzahl der zerfallenen Myonen in Abhängigkeit ihrer Lebensdauer.}
+    \label{fig:leben}
+\end{figure}
+
+Über 
+\begin{equation}
+\tau = \frac{1}{\lambda}     
+\end{equation}
+lässt sich die Lebensdauer von Myonen zu
+\begin{equation}
+    \tau = \SI{ 2.36(06)}{\micro\s}
+\end{equation}
+bestimmen.
+
+
 %Messwerte: Alle gemessenen physikalischen Größen sind übersichtlich darzustellen.
 %
 %Auswertung:

@@ -13,7 +13,84 @@ Demnach kommt es zu einer Verschiebung des Ladungsschwerpunktes, wodurch ein per
 Bei Raumtemperatur sind die Zustandswahrscheinlichkeiten über die Boltzmann-Statistik zu beschreiben. Das Gesamtdipolmoment ist also bei Raumtemperatur null. 
 Eine Umorientierung der Dipole ist dann möglich, wenn die nötige Aktivierungenergie $W$ aufgebracht werden kann, um das Gitterpotential des Kristalls zu überwinden. 
 Dies kann durch thermische Energie gewährleistet werden, wobei die Relaxationszeit, also die mittlere Zeit zwischen zwei Umorientierungen durch 
+
 \begin{equation}
-    \tau(T) = \tau_0 exp \bigl( \frac{W}{k_B T}\bigr)
+    \tau(T) = \tau_0 \text{exp} \bigl( \frac{W}{k_B T}\bigr)
 \end{equation}
-gegeben ist. $\tau_0 $ ist dabei die charakteristische Relaxationszeit, welche ein Grenzwert für $\tau$ bei $T\shortrightarrow\infty$ angibt.
+gegeben ist. $\tau_0 $ ist dabei die charakteristische Relaxationszeit, welche ein Grenzwert für $\tau$ bei $T -> \infty$ angibt.
+
+Wirkt ein äußeres elektrisches Feld auf den Ionenkristall, so richten sich die Dipole entlang der E-Feldlinien aus. Dafür muss die Zeit der Dipole im E-Feld 
+groß gegenüber der Relaxationszeit sein. Wird bei einer bestehenden Ausrichtung der Dipole das System hinreichend abgekühlt, wird deren Ausrichtung praktisch eingefroren, sie bleibt 
+also auch nach Abschalten des E-Feldes bestehen. Dies lässt sich dadurch erklären, dass bei geringen Temperaturen nicht mehr die nötige Aktivierungenergie $W$ durch Thermische Energie 
+aufgebracht werden kann. Wird darauf hin das System wieder mit einer konstanten Heizrate erwärmt, können die Dipole nach und nach wieder in ihre anfängliche Ausrichtung relaxieren. 
+Dadurch tritt ein Relaxationsstrom auf, der durch die zeitliche Änderung der Polarisation zustande kommt.
+
+\subsection{Herleitung des Polarisationsstroms über Polarisationsansatz}
+
+Die makroskopische Polarisation kann für hohe Temperaturen, dh. $p E << k_B T $ durch 
+
+\begin{equation}
+    P = \frac{N p^2 E}{3 k_B T} := y
+\end{equation}
+
+genähert werden. Dabei ist $N$ die Dichte der Dipole pro Volumen. $y(T_p)$ ist der Anteil der ausgerichteten Dipole, der mit der temperaturabhängigen Stromdichte $j(T)$ über 
+
+\begin{equation}
+    j(T) = y(T_p) p \frac{\text{d}N}{\text{d}t}
+\end{equation}
+
+zusammenhängt, wobei $\frac{\text{d}N}{\text{d}t}$ die Relaxationsrate ist, die durch $- \frac{N}{\tau(T)}$ beschreiben werden kann, mit 
+
+\begin{equation}
+    N = N_p \text{exp} \Biggl( -\frac{1}{b} \int_{T_0}^{T} \frac{\text{d}t'}{\tau(T')} \Biggr).    
+\end{equation}
+
+Die Zahl $N_p$ beschreibt die zum Beginn des Heizprozesses bestehenden ausgerichteten Dipole pro Volumen und Heizrate $b := \frac{dT}{dt}$. 
+Damit lässt sich insgesamt der Dipolarisationsstrom durch 
+
+\begin{equation}
+    j(T) = \frac{p^2 E N_p}{3 k_B T_p \tau_0} \text{exp} \Biggl(-\frac{1}{b} \int_{T_0}^{T} \text{exp} \Bigl( - \frac{W}{k_B T'} \Bigr) \text{d}T' \Biggr)\cdot 
+    \text{exp} \Bigl( - \frac{W}{k_B T'} \Bigr)
+\end{equation}
+
+ausdrücken. 
+
+Bei niedrigen Temperaturen zu Anfang des Heizprozesses fließt kein signifikanter Strom, es kann also durch die Näherung 
+
+\begin{equation}
+    \int_{T_0}^{T} \text{exp} \Bigl( - \frac{W}{k_B T'} \Bigr) \approx 0 
+\end{equation}
+
+die Stromdichte in diesem Bereich als 
+
+\begin{equation}
+    j(T) = \frac{p^2 E N_p}{3 k_B T_p \tau_0} \text{exp} \Bigl( - \frac{W}{k_B T'} \Bigr)
+\end{equation}
+
+annähern.
+
+\subsection{Herleitung des Polarisationsstroms über Stromdichte}
+
+Der Polarisationsstrom kann im Allgemeinen durch 
+
+\begin{equation}
+    j(T) = -\frac{dP(t)}{dt} = \frac{P(t)}{\tau(T)}
+\end{equation}
+
+beschrieben werden. Mit der zeitabhängigen Polarisation 
+
+\begin{equation}
+    P(t) = P_0 \text{exp} \Bigl( - \frac{t}{\tau(T)} \Bigr)
+\end{equation}
+
+lässt die Gleichung, zusammen mit der Zeit $t$ in Integraldarstellung, als 
+
+\begin{equation}
+    j(T) = \frac{P_0}{\tau} \text{exp} \Bigl( - \int_0^t \frac{\text{d}t}{\tau(T)} \Bigr)    
+\end{equation}, und mit der bereits bekannten Definition der Heizrate $b := \frac{dT}{dt}$ als 
+
+\begin{equation}
+    j(T) = \frac{P_0}{\tau} \text{exp} \Biggl( - \int_{T_0}^T exp \Bigl( -\frac{W}{k_B T'} \Bigr) \text{d}T' \Biggr)
+\end{equation}
+
+ausdrücken.

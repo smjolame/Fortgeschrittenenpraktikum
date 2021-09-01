@@ -1,8 +1,8 @@
 all: build/main.pdf
  
+ #MATPLOTLIBRC="$$(dirname "$$(pwd)")/default/matplotlibrc" \
 # hier Python-Skripte: 
 plots: FORCE | build
-	  MATPLOTLIBRC="$$(dirname "$$(pwd)")/default/matplotlibrc" \
 	  TEXINPUTS="$$(dirname "$$(pwd)")/default:" \
 	python plot.py
 

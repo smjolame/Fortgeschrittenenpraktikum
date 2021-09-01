@@ -1,8 +1,49 @@
 \section{Theorie}
 \label{sec:Theorie}
 
-%In knapper Form sind die physikalischen Grundlagen des Versuches, des Messverfahrens, sowie sämtliche für die Auswertung erforderlichen Gleichungen darzustellen. (Keine Herleitung)
+Im folgenden Versuch ist das Ziel, die Lebensdauer kosmischer Myonen zu bestimmen. Solche Myonen entstehen in der Hochatmosphäre, wobei zuerst durch Wechselwirkung 
+hochenergetsicher Protononen Pionen entstehen, welche eine geringe Lebensdauer aufweisen und deshalb praktisch sofort weiter zerfallen, wobei Myonen und Myon-Neutrinos 
+wie hier gezeigt entstehen:
 
-%(eventuell die Aufgaben)
+\begin{equation}
+    \pi^+ \rightarrow \nu_{\mu} \. ; \. \pi^- \rightarrow \overline{\nu}_{\mu}
+\end{equation}
 
-%Der Versuchsaufbau: Beschreibung des Versuchs und der Funktionsweise (mit Skizze/Bild/Foto)
+Diese Myonen bewegen sich dann in Richtung Erdoberfläche und können da mit einem Szintillatordetektor gemessen werden. Das hierbei zugrundeliegende Konzept ist, dass die in den 
+Szintillator eintretenden Myonen kinetische Energie an das Szintillatormaterial abgeben. Dadurch werden die Molekühle im Tank vorübergehend angeregt und emittieren beim Zurückfallen 
+auf den Grundzustand ein Photon. Diese Photonen werden dann mit einem Photomultiplier gemessen. Zerfällt das Myon innerhalb des Szintillators, wird ein weiteres Signal gemessen, da 
+beim Zerfall des Myons ein Elektron entsteht, welches ebenfalls geladen ist. Ist das eintretende Myon negativ gealden, kann im Szintillatormaterial ein myonisches Atom entstehen, 
+welches durch Absorbtion des Myons an einer freien Stelle im Atom zustande kommt. Das eintretende muss auch ohne diesen Effekt nicht zwingend innerhalb des Szintillators 
+zerfallen. Besitzt es beim Eintreten noch genügend Energie, so kann es sich durch den kompletten Szintillator bewegen, ohne zu zerfallen und folglich ohne ein weiteres Signal zu 
+erzeugen. 
+
+Für die Berechnung der Lebensdauer ist der proportionale Zusammenhang 
+
+\begin{equation}
+    \text{d}W = \lambda \text{d}t
+\end{equation}
+
+essentiell, wobei $\text{d}W$ die Zerfallswahrscheinlichkeit im infinitesimalen Bereich und $\lambda$ eine charakteristische Zeitkonstante darstellt. Die Lebensdauer eines Myons ist also 
+nicht von seinem Alter abhängig. Bei $N$ betrachteten Teilchen ist die Anzahl der im Zeitraum $\text{d}t$ zerfallenen Teilchen durch $\text{d}N$ auszudrücken, die sich durch 
+
+\begin{equation}
+    \text{d}N = -N\text{d}W = -\lambda N\text{d}t 
+\end{equation}
+
+auszudrücken lässt. Durch Integration nach der Zeit ergibt sich 
+
+\begin{equation}
+    \frac{N(t)}{N_0} = e^{-\lambda t}
+\end{equation}
+
+mit $N_0$ als Anzahl der insgesamt betrachteten Teilchen und $\lambda$ als Zerfallskonstante. Die Lebensdauer ist also auf dem Intervall $t$ bis $\text{d}t$ exponentialverteilt:
+
+\begin{equation}
+    \text{d}N(t) = N_0 \lambda e^{-\lambda t} \text{d}t
+\end{equation}
+
+Die charakteristische Lebensdauer lässt sich dann durch Bildung des Mittelwertes aller möglichen Lebensdauern identifizieren: 
+
+\begin{equation}
+    <t> = \tau = \int_0^{\infty} \lambda e^{-\lambda t} \text{d}t = \frac{1}{\lambda}
+\end{equation}

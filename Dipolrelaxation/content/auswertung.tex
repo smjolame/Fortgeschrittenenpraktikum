@@ -1,10 +1,63 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 Alle Berechnungen werden mit dem Programm \glqq Numpy" \cite{numpy}, die Unsicherheiten mit dem Modul \glqq Uncertainties" \cite{uncertainties}, die Ausgleichsrechnungen mit dem Modul \glqq Scipy" \cite{scipy} durchgeführt und die grafischen Darstellungen über das Modul \glqq Matplotlib" \cite{matplotlib} erstellt.
-%Messwerte: Alle gemessenen physikalischen Größen sind übersichtlich darzustellen.
-%
-%Auswertung:
-%Berechnung der geforderten Endergebnisse
-%mit allen Zwischenrechnungen und Fehlerformeln, sodass die Rechnung nachvollziehbar ist.
-%Eine kurze Erläuterung der Rechnungen (z.B. verwendete Programme)
-%Graphische Darstellung der Ergebnisse
+
+Die Heizraten der jeweiligen Temperaturverläufe, wie sie in den Tabellen [] und [] zu sehen ist, lassen sich durch 
+
+\begin{equation}
+    \Delta b_i = \frac{T_i - T_{i-1}}{\SI{60}{s} }
+\end{equation}
+
+darstellen. Daraus lassen sich die beiden mittleren Heizraten 
+
+\begin{equation}
+    
+\end{equation}
+
+berechnen. 
+
+Außerdem wird ein Untergrundstrom identifiziert, der über einen Exponetial-Fit der Form 
+\begin{equation}
+    f(x) = a e^{bx} + c
+\end{equation}
+
+beschrieben wird. Dieser Untergrund wird dann von den Werten der beiden Messreihen subtrahiert, damit ein charakteristischer Verlauf des Relaxationsstroms sichtbar wird. 
+
+\subsection{Aktivierungenergie Methode 1}
+
+Durch den in Gleichung [] gezeigten Zusammenhang können anhand der beiden Messreihen dann die Aktivierungenergien $W$ errechnet werden. Diese ergeben sich zu 
+
+\begin{equation}
+    
+\end{equation}
+
+
+\subsection{Aktivierungenergie Methode 2}
+
+Eine weitere Möglichkeit, aus den Datensätzen einen Wert für die Aktivierungsenergie zu bestimmen, wird im Abschnitt [] gezeigt. Dazu wird eine lineare Regression der Form 
+
+\begin{equation}
+    F(T) = \frac{m}{T} + c
+\end{equation}
+
+durchgeführt, was die Gleichung [] wiederspiegelt. Damit werden die Aktivierungenergien beider Messreihen zu 
+
+\begin{equation}
+    
+\end{equation}
+
+bestimmt. ...
+
+\subsection{Charakteristische Relaxationszeit}
+
+Die charakteristische Relaxationszeit kann über die Aktivierungenergie bestimmt werden. Mit den aufgenommenen Daten kann die Gleichung [] verwendet werden, um mit den jeweils 
+maximalen Temperaturen $\T_{max,i}$ jweils $\tau_0$ zu 
+
+\begin{equation}
+    
+\end{equation}
+zu bestimmen. 
+
+Es lässt sich daraus eine Abhängigkeit der Relaxationszeit von der Aktivierungsenergie und der charakteristischen Relaxationszeit beschreiben, die im Plot [] sichtbar ist. Dabei 
+werden hier die Werte der Integrationsmethode verwendet und es können die Verläufe der beiden Messreihen verglichen werden. 
+

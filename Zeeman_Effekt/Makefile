@@ -2,9 +2,10 @@ all: build/main.pdf
  
 # hier Python-Skripte: 
 plots: FORCE | build
-	  MATPLOTLIBRC="$$(dirname "$$(pwd)")/default/matplotlibrc" \
+	  
+	MATPLOTLIBRC="$$(dirname "$$(pwd)")/default/matplotlibrc" \
 	  TEXINPUTS="$$(dirname "$$(pwd)")/default:" \
-	python plot.py
+	python pixel.py
 
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
 build/main.pdf: 
@@ -28,3 +29,6 @@ clean:
 FORCE:
 
 .PHONY: all clean
+#MATPLOTLIBRC="$$(dirname "$$(pwd)")/default/matplotlibrc" \
+#	  TEXINPUTS="$$(dirname "$$(pwd)")/default:" \
+#	python plot.py

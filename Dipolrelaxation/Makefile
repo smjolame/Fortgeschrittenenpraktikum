@@ -5,7 +5,16 @@ all: build/main.pdf
 plots: FORCE | build
 	  TEXINPUTS="$$(dirname "$$(pwd)")/default:" \
 	python plot.py
-
+	  TEXINPUTS="$$(dirname "$$(pwd)")/default:" \
+	python plot2.py
+	  TEXINPUTS="$$(dirname "$$(pwd)")/default:" \
+	python relax15.py
+	  TEXINPUTS="$$(dirname "$$(pwd)")/default:" \
+	python relax20.py
+	  TEXINPUTS="$$(dirname "$$(pwd)")/default:" \
+	python last15.py
+	  TEXINPUTS="$$(dirname "$$(pwd)")/default:" \
+	python last20.py
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
 build/main.pdf: 
 

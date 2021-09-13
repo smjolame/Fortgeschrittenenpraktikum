@@ -1,3 +1,131 @@
 \section{Theorie}
 \label{sec:Theorie}
 
+\subsection{Drehimpuls und magnetisches Moment eines Elektrons}
+
+Die Drehimpulskomponenten eines Elektrons, welches an ein Atom gebunden ist, sind der Bahndrehimpuls $\vec{l}$ und der Spin $\vec{s}$.
+Die Beträge lassen sich jeweils durch die Quantenzahlen $l$ und $s$ ausdrücken:
+
+%\begin{align*}
+%    $|\vec{l}|$ &= \sqrt{l(l+1)\hbar} \\
+%    $|\vec{s}|$ &= \sqrt{s(s+1)\hbar}
+%\end{align*}
+
+Dabei ist $s= \frac{1}2$ und $l$ kann Werte von $0$ bis $n-1$ annehmen, wobei n die Hauptquantelzahl ist. 
+Den Drehimpulsen der Elektronen können aufgrund deren Ladung jeweils magnetische Momente zugeordnet werden:
+
+\begin{align}
+    \vec{\mu_l} &= -\frac{\vec{\mu_B}}{\hbar}\vec{l} = -\vec{\mu_B}\sqrt{l(l+1)\vec{l_e}} \\
+    \vec{\mu_s} &= -g_s\frac{\vec{\mu_B}}{\hbar}\vec{s} = -g_s\vec{\mu_B}\sqrt{s(s+1)\vec{s_e}} 
+\end{align}
+
+Hierbei ist $\vec{\mu_B}$ das Bohr'sche Magneton, welches den Wert 
+
+\begin{equation}
+    \vec{\mu_B} = \frac{1}2 e_0 \frac{\hbar}{m_0}
+\end{equation}
+
+hat, $g_s$ der Landé-Faktor mit $g_s\approx 2$ und $\vec{l_e}$ bzw. $\vec{s_e}$ die Einheitsvektoren von $\vec{l}$ und $\vec{s}$. 
+
+\subsection{Wechselwirkungen der Drehimpulse}
+
+Für diesen Versuch werden im Folgenden zwei Grenzfälle der Kopplung von Spin- und Bahndrehimpuls genauer Erläutert.
+Bei der sogenannten j-j-Kopplung werden Atomen mit hoher Masse betrachtet. Hierbei ist die Kopplung der unterschiedlichen Drehimpulse eines 
+Elektrons zueinander größer, als die Kopplung zu anderen Elektronen. Der Gesamtdrehimpuls eines Elektrons ist also hier 
+\begin{equation}
+    \vec{j_i} = \vec{l_i} + \vec{s_i}
+\end{equation} mit dem Gesamtdrehimpuls der Elektronen im Atom 
+\begin{equation}
+    \vec{J_i} = \sum \vec{j_i}\,.
+\end{equation}
+
+Mit der L-S-Kopplung werden Atome mit leichten Kernen, also niedriger Massezahl, betrachtet. Hierbei überwiegt die Wechselwirkung zwischen den 
+einzelnen Elektronen, folglich wird der Gesamtdrehimpuls $\vec{J}$ durch 
+\begin{equation}
+    \vec{J} = \vec{L} + \vec{S}
+\end{equation}
+beschrieben, mit 
+\begin{align*}
+    \vec{L_i} &= \sum \vec{l_i} \\
+    \vec{S_i} &= \sum \vec{s_i}
+\end{align*}
+
+Die Magnetischen Momente der aufaddierten Drehimpulse sind dann 
+
+\begin{align*}
+    \vec{\mu_L} &=  \vec{\mu_B} \sqrt{L(L+1)} \\
+    \vec{\mu_S} &=  g_s \vec{\mu_B} \sqrt{S(S+1)} 
+\end{align*}
+
+\subsection{Aufpaltung der Energieniveaus}
+Wird das Magnetische Moment des Gesamtdrehimpulses $\vec{J}$ durch addieren der magnetischen Momente von $\vec{S}$ und $\vec{L}$
+beschrieben, also 
+\begin{equation}
+    \vec{\mu_J} = \vec{\mu_L} + \vec{\mu_S}\,,
+\end{equation}
+
+muss darauf geachtet werden, dass $\vec{\mu}$ nicht die selbe Richtung wie $\vec{\mu}$ aufweist. Folglich müssen alle Komponenten, bei denen 
+$\vec{\mu}$ und $\vec{\mu}$ senkrecht aufeinander stehen, verschwinden. Für den Betrag der übrig bleibenden parrallelen Komponenten gilt dann 
+\begin{equation}
+    |\vec{\mu_J}| = g_J \mu_B \sqrt{J(J+1)}\,
+\end{equation} 
+wobei 
+\begin{equation}
+    g_J = \frac{3J(J+1) + S(S+1) -L(L+1)}{2J(J+1)}\,.
+\end{equation}
+Bei Bestand eines äußeren Magnetfeldes $\vec{B}$ muss aufgrund der Richtungsquantelung der Winkel zwischen $\vec{B}$ und $\vec{\mu}$ so stehen,
+dass die $z-$Komponente des magnetischen Momentes $\mu_{J_{z}}$ immer ein ganzzaliges Vielfaches des Produktes aus Bohr'schem Magneton und 
+Landé-Faktor ist, dh. 
+\begin{equation}
+    \mu_{J_{z}} = - m\cdot g_J\cdot \mu_B,\.\.\.m=[-J,J]\. ,
+\end{equation}
+mit der ganzzaligen Orientierungsquantenzahl $m$. Die Energie, die dem System durch das Magnetfeld hinzugefügt wird, kann damit durch 
+
+\begin{equation}
+    E_{mag} =  -\vec{\mu_J} \vec{B} = m\cdot g_J\cdot \mu_B\cdot B
+\end{equation}
+
+beschrieben werden. Es folgt die Möglichkeit der Aufpaltung der Energieniveaus in $2J+1$ Niveaus, was in Abbildung [] Schematisch dargestellt ist.
+Auch bei bereits angeregten Energieniveaus ist diese Aufspaltung möglich, wodurch es zu weiteren Übergängen zwischen den aufgespaltenen Niveaus 
+kommen kann. Dieser Effekt wird Zeeman-Effekt genannt und lässt sich durch die dadurch auftretende Aufspaltung in den Spektrallinien betrachten.
+
+\subsection{Normaler und Anormaler Zeeman-Effekt}
+
+Der normale Zeeman-Effekt ist im Grunde genommen ein Spezielfall, bei welchem der Gesamtspin des Atoms gleich null sein muss, wodurch der 
+Landé-Faktor zu $g_J = 1$ wird. Eine Verschiebung des Energieniveaus ergibt sich damit zu 
+\begin{equation}
+    \Delta E = m\cdot g_J\cdot \mu_B\cdot B
+\end{equation}
+
+Dadurch entsteht also eine Aufspaltung der Energieniveaus in $2J+1$ Niveaus, wobei die Linien anhand der jeweiligen Polarisation kategorisiert
+werden. Die $\sigma_-$ und $\sigma_+$ Linien bei zirkularer Polarisation und entsprechend $\Delta M \pm 1$ und die $\pi$-Linie bei linearer 
+Polarisation und $\Delta M =0$. Die Energiedifferenzen der Übergänge lässt sich allein anhand von $\Delta M$ unterscheiden, weshalb eine 
+Aufspaltung in drei Spektrallinien vorliegt. Die Polarisation führt dazu, dass bei einer Beobachtung die Perspektive eine essentielle Rolle spielt.
+Bei einer Beobachtung entlang der Feldrichtung verschwindet die $\pi$-Linie, wobei die zirkular polarisierten $\sigma_{\pm}$-Linien bei 
+Betrachtung senkrecht zur Feldrichtung linear polarisiert erscheinen. 
+\\
+Beim anormalen Zeeman-Effekt werden die Fälle betrachtet, bei denen der Gesamtspin der Elektronen ungleich null ist. Da jetzt $g_J$ nicht mehr 
+einfach gleich eins ist, sind nun die Energiedifferenzen spinanhängig. Genauer lassen sich diese durch 
+\begin{equation}
+    \Delta E = (m_i g(L_i,S_i,J_i) -m_k g(L_k,S_k,J_k,))\mu_B B + E_0
+\end{equation}
+beschreiben. $E_0$ entspricht dabei der Energie ohne äußeres Magnetfeld und die Indices $i$ und $k$ kennzeichnen die Überganngsnivueas. 
+
+\subsection{Landé-Faktoren}
+
+Im Rahmen dieses Versuchs lassen sich die Landé-Faktoren anhand der Gleichung 
+\begin{equation}
+    \Delta E = g\mu_B B 
+\end{equation} 
+
+bestimmen. Mit
+
+\begin{equation}
+    \Delta E = \frac{\delta E}{\delta\lambda}E(\lambda)
+\end{equation}
+
+wobei $E(\lambda) = \frac{hc}{\lambda}$, lässt sich der Zusammenhang durch 
+\begin{equation*}
+    g = \delta\lambda\frac{hc}{\mu_B B \lambda^2}
+    \label{eqn:lande}
+\end{equation*} darstellen. 

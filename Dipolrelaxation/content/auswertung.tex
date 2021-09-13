@@ -10,9 +10,10 @@ Die Heizraten der jeweiligen Temperaturverläufe, wie sie in den Tabellen [] und
 
 darstellen. Daraus lassen sich die beiden mittleren Heizraten 
 
-\begin{equation}
-    
-\end{equation}
+\begin{align*}
+    h_1 &=  \SI{1.360(029)}{\kelvin\per\second} \\
+    h_2 &=  \SI{1.912(056)}{\kelvin\per\second} \\
+\end{align*}
 
 berechnen. 
 
@@ -23,40 +24,60 @@ Außerdem wird ein Untergrundstrom identifiziert, der über einen Exponetial-Fit
 
 beschrieben wird. Dieser Untergrund wird dann von den Werten der beiden Messreihen subtrahiert, damit ein charakteristischer Verlauf des Relaxationsstroms sichtbar wird. 
 
-\subsection{Aktivierungenergie Methode 1}
+\subsection{Aktivierungenergie über Polarisationsansatz}
 
-Durch den in Gleichung [] gezeigten Zusammenhang können anhand der beiden Messreihen dann die Aktivierungenergien $W$ errechnet werden. Diese ergeben sich zu 
+Über den Polarisationsansatz kann, wie im Abschnitt \ref{sec:pol} beschrieben, die Aktivierungenergie $W$ näherungsweise bestimmt werden.
+Die so errechneten Werte für die beiden Messreihen ergeben sich zu 
+\begin{align*}
+    W_{\text{int},1.5} &= \SI{1.46(06)e-19}{\joule} &= \SI{0.91(04)}{\electronvolt} \\
+    W_{\text{int},2}   &= \SI{9.4(12)e-20}{\joule} &= \SI{0.59(08)}{\electronvolt} \\
+\end{align*}
 
-\begin{equation}
-    
-\end{equation}
 
+\subsection{Aktivierungenergie über Stromdichte}
 
-\subsection{Aktivierungenergie Methode 2}
-
-Eine weitere Möglichkeit, aus den Datensätzen einen Wert für die Aktivierungsenergie zu bestimmen, wird im Abschnitt [] gezeigt. Dazu wird eine lineare Regression der Form 
+Eine weitere Möglichkeit, aus den Datensätzen einen Wert für die Aktivierungsenergie zu bestimmen, wird im Abschnitt \ref{sec:int} gezeigt. 
+Dazu wird eine lineare Regression der Form 
 
 \begin{equation}
     F(T) = \frac{m}{T} + c
 \end{equation}
 
-durchgeführt, was die Gleichung [] wiederspiegelt. Damit werden die Aktivierungenergien beider Messreihen zu 
-
+durchgeführt, was die Gleichung 
 \begin{equation}
-    
-\end{equation}
+    \ln{\tau} = \ln(\tau_0) + \frac{W}{k_B T}
+\end{equation} 
+wiederspiegelt.
 
-bestimmt. ...
+Damit werden die Aktivierungenergien beider Messreihen zu 
+
+\begin{align*}
+    W_{\text{apr},1.5} &= \SI{8.4(5)e-20}{\joule} &= \SI{0.524(033)}{\electronvolt} \\
+    W_{\text{apr},2}   &= \SI{9.0(5)e-20}{\joule} &= \SI{0.560(033)}{\electronvolt} \\
+\end{align*}
+
+bestimmt.
 
 \subsection{Charakteristische Relaxationszeit}
 
-Die charakteristische Relaxationszeit kann über die Aktivierungenergie bestimmt werden. Mit den aufgenommenen Daten kann die Gleichung [] verwendet werden, um mit den jeweils 
-maximalen Temperaturen $\T_{max,i}$ jweils $\tau_0$ zu 
-
+Die charakteristische Relaxationszeit kann über die Aktivierungenergie bestimmt werden. Mit den aufgenommenen Daten  und den bereits 
+errechneten Heizraten kann die Gleichung 
 \begin{equation}
-    
-\end{equation}
-zu bestimmen. 
+    T^2_\text{max} = bW = \frac{\tau(T_\text{max})}{k_B} 
+\end{equation} 
+verwendet werden, um mit den jeweils maximalen Temperaturen $T_{max,1.5} = \SI{259.2}{\kelvin} $ und $T_{max,2} = \SI{260.5}{\kelvin} $ 
+jweils $\tau_0$  für beide Methoden zu bestimmen. \\
+
+Für die Werte des Polarisationsansatzes ergeben sich die $\tau_0$ damit zu 
+\begin{align*}
+    \tau_{0,1.5} &= \SI{2.5(29)e-12}{\second}\\
+    \tau_{0,2}   &= \SI{1.8(21)e-12}{\second}\\ 
+\end{align*}
+und für den Ansatz über die Stromdichte ergibt sich 
+\begin{align*}
+    \tau_{0,1.5} &= \SI{1.9(32)e-13}{\second}\\
+    \tau_{0,2}   &= \SI{1.4(24)e-13}{\second}\\ 
+\end{align*}
 
 Es lässt sich daraus eine Abhängigkeit der Relaxationszeit von der Aktivierungsenergie und der charakteristischen Relaxationszeit beschreiben, die im Plot [] sichtbar ist. Dabei 
 werden hier die Werte der Integrationsmethode verwendet und es können die Verläufe der beiden Messreihen verglichen werden. 

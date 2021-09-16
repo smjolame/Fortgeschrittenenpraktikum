@@ -1,6 +1,37 @@
 \section{Diskussion}
 \label{sec:Diskussion}
 
+
+In Tabelle \ref{tab:zusa} sind die bestimmten Aktivierungsenergien zusammenfassend dargestellt. Laut \cite{Dipol} ist der Literaturwert auf $W_\text{lit} = \SI{0.66}{\electronvolt}$ angegeben. Die jeweiligen Abweichungen sind ebenfalls der Tabelle zu entnehmen. 
+
+\begin{table}
+    \centering
+    \caption{Zusammenfassung der Ergebnisse.}
+    \label{tab:zusa}
+    \sisetup{table-format = 1.2}
+    \begin{tabular}{S S S S S}
+        \toprule
+        & \multicolumn{2}{c}{Integration} & \multicolumn{2}{c}{Approximation} \\
+        \cmidrule(lr){2-3} \cmidrule(lr){4-5}
+        {$\text{mittl. Heizrate} \mathbin{/} \si{\kelvin\per\minute} $} & {$W \mathbin{/} \si{\electronvolt}$} & {$\text{Abw.} \mathbin{/} \si{\percent}$} & {$W \mathbin{/} \si{\electronvolt}$} & {$\text{Abw.} \mathbin{/} \si{\percent}$} \\
+        \midrule   
+        1.36 & \num{0.91(04)} & \num{38(6)} & \num{0.524(033)} & \num{21(5)}  \\
+        1.91 & \num{0.59(08)} & \num{12(11)} & \num{0.560(033)} & \num{15(5)}  \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Es fällt auf, dass die Werte bei der geringeren Heizrate stärker vom Literaturwert abweichen, als die bei der höheren. Das kann auf die Reihenfolge der Messdurchläufe zurückzuführen sein. Im Versuch ist mit der geringeren Heizrate angefangen worden. Da sich erstmal an die Wirkung und Empfindlichkeit der Temperaturregelung gewöhnt werden musste, kann es sein, dass die Heizrate nicht optimal konstant gehalten werden konnte. Zwischen den beiden Methoden lässt sich kein besonders großer Unterschied festellen. Die Ergebnisse der Approximations-Methode bei der ersten Heizrate weichen zwar nur halb so stark ab, dafür ist die Abweichung bei der zweiten Heizrate sogar ein wenig höher. 
+
+
+Die berechneten Relaxationszeiten weichen mehrere Größenordungen von dem Literaturwert von $\tau_{0,\text{lit}} = \SI{4e-14}{\s}$ ab. 
+Da die Aktivierungsenergien exponetiell in die berechnung der Relaxationszeiten eingehen, sorgen bereits kleine Abweichungen für große Abweichungen der bestimmten Relaxationszeiten. 
+
+
+Bei Betrachtung der Kurvenverläufe des Strom gegenüber der Temperatur fällt ein nachfolgendes Maximum auf. Innerhalb der hier präsentierten Theorie lassen sich diese Verläufe nicht erklären. Jedoch werden zum herleiten der Gleichungen nur die Dipolmomente erster Ordnung betrachtet. Diese zweiten Maxima werden durch Momente höherer Ordnung verursacht. Durch die steigende Temperatur können so Dipole ralaxieren, die eine höhere Coulomb-Barriere überwinden und damit eine höhere Aktivierungsenergie aufbringen müssen. 
+
+
+Da im Versuch nur mit einer Art Kristall gearbeitet wird, kann kaum auf die Güte des Versuchs im Allgemeinen geschlossen werden. In diesem konkreten Fall aber, kann die Relaxation gut gezeigt werden. Auch eine grobe Bestimmung der Aktivierungsenergien ist möglich. Für eine gute Bestimmung der Relaxationszeiten ist jedoch die Präzision nicht hoch genug.
 %Kurze Zusammenfassung der Ergebnisse
 %-Vergleich mit Literaturwerten
 %-Vergleich mit verschiedenen Messverfahren

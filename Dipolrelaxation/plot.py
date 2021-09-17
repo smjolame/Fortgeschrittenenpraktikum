@@ -65,9 +65,9 @@ I1_pol = I1[25:45]
 T1_pol = T1[25:45]
 
 #plot
-plt.plot(T1, I1, 'rx', label='Messwerte')
-plt.plot(T1_unter, I1_unter, 'bo', alpha=0.2, label='Teilmenge: Untergrund')
-plt.plot(T1_pol, I1_pol, 'yo', alpha=0.4, label='Teilmenge: Depolarisationsstrom')
+plt.plot(T1, I1, 'mx', label='Messwerte')
+plt.plot(T1_unter, I1_unter, 'mo', alpha=0.2, label='Teilmenge: Untergrund')
+plt.plot(T1_pol, I1_pol, 'go', alpha=0.4, label='Teilmenge: Depolarisationsstrom')
 plt.plot(T1_lin, f(T1_lin, *params), label='Ausgleichskurve: Untergrund')
 
 plt.xlabel(r'$T \,/\, K$')
@@ -103,10 +103,10 @@ I2_pol = I2[10:28]
 T2_pol = T2[10:28]
 
 #plot
-plt.plot(T2, I2, 'rx', label='Messwerte')
-plt.plot(T2_unter, I2_unter, 'bo', alpha=0.2, label='Teilmenge: Untergrund')
-plt.plot(T2_pol, I2_pol, 'yo', alpha=0.4, label='Teilmenge: Depolarisationsstrom')
-plt.plot(T2_lin, f(T2_lin, *params), label='Ausgleichskurve: Untergrund')
+plt.plot(T2, I2, 'mx', label='Messwerte')
+plt.plot(T2_unter, I2_unter, 'mo', alpha=0.3, label='Untergrund')
+plt.plot(T2_pol, I2_pol, 'go', alpha=0.6, label='Depolarisationsstrom')
+plt.plot(T2_lin, f(T2_lin, *params), label='Ausgleichsfunktion Untergrund')
 
 plt.xlabel(r'$T \,/\, K$')
 plt.ylabel(r'$I \,/\, pA$')
@@ -147,8 +147,8 @@ W = ufloat(params[1], errors[1])
 print(f'Aktivierungsenergie W approx 15 = {W}J = {W/e_volt}eV')
 
 T_lin = np.linspace(T_dep.min(), T_dep.max(), 10000)
-plt.plot(T_dep, I_dep, 'rx', label='Messwerte')
-plt.plot(T_lin, I_func(T_lin, *params), label='Ausgleichsfunktion')
+plt.plot(T_dep, I_dep, 'mx', label='Messwerte')
+plt.plot(T_lin, I_func(T_lin, *params), label='Regressionsfunktion')
 plt.xlabel(r'$T \,/\, K$')
 plt.ylabel(r'$I \,/\, pA$')
 plt.legend()
@@ -188,8 +188,8 @@ W3 = ufloat(params3[1], errors3[1])
 print(f'Aktivierungsenergie W approx 20 = {W3}J = {W3/e_volt}eV')
 
 T3_lin = np.linspace(T3_dep.min(), T3_dep.max(), 10000)
-plt.plot(T3_dep, I3_dep, 'rx', label='Messwerte')
-plt.plot(T3_lin, I3_func(T3_lin, *params3), label='Ausgleichsfunktion')
+plt.plot(T3_dep, I3_dep, 'mx', label='Messwerte')
+plt.plot(T3_lin, I3_func(T3_lin, *params3), label='Regressionsfunktion')
 plt.xlabel(r'$T \,/\, K$')
 plt.ylabel(r'$I \,/\, pA$')
 plt.legend()
@@ -228,9 +228,9 @@ print(f'b = {b_ger}')
 print(f'W = a*k_B = {W} J = {W/e_volt} eV')
 
 # Plot
-plt.plot(x, y, 'rx', label='Messwerte')
-plt.plot(x, g(x, *params), label = 'Ausgleichsgerade')
-plt.ylabel(r'$\ln \, \frac{\int \mathrm{I(T)} \mathrm{dT}}{\mathrm{I}}$')
+plt.plot(x, y, 'mx', label='Messwerte')
+plt.plot(x, g(x, *params), label = 'Lineare Regression')
+plt.ylabel(r'$\ln \, \frac{\int \mathrm{I} \mathrm{dT}}{\mathrm{I}}$')
 plt.xlabel(r'$\dfrac{1}{\mathrm{T}} \,/\, K$')
 plt.grid()
 plt.legend()
@@ -267,7 +267,7 @@ plt.savefig('build/integration_15.pdf')
 #print(f'W = a*k_B = {W} J = {W/e_volt} eV')
 #
 ## Plot
-#plt.plot(x, y, 'rx', label='Messwerte')
+#plt.plot(x, y, 'mx', label='Messwerte')
 #plt.plot(x, g(x, *params), label = 'Ausgleichsgerade')
 #plt.ylabel(r'$\ln \, \frac{\int \mathrm{I(T)} \mathrm{dT}}{\mathrm{I}}$')
 #plt.xlabel(r'$\dfrac{1}{\mathrm{T}} \,/\, K$')
@@ -305,7 +305,7 @@ plt.savefig('build/integration_15.pdf')
 ##print(f'tau_0 für int: {tau_0_int}')
 #
 ## Plot
-#plt.plot(t/60, T, 'rx', label='Messwerte')
+#plt.plot(t/60, T, 'mx', label='Messwerte')
 #plt.plot(t/60, f(t, *params), label='Ausgleichsgerade')
 #plt.ylabel(r'$T \,/\, K$')
 #plt.xlabel(r'$t \,/\, min$')

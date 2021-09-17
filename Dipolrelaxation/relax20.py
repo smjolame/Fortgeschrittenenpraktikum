@@ -38,7 +38,7 @@ print(f'tau_0 für approx: {tau_0_approx}')
 print(f'tau_0 für int: {tau_0_int}')
 
 # Plot
-plt.plot(t/60, T, 'rx', label='Messwerte')
+plt.plot(t/60, T, 'mx', label='Messwerte')
 plt.plot(t/60, f(t, *params), label='Ausgleichsgerade')
 plt.ylabel(r'$T \,/\, K$')
 plt.xlabel(r'$t \,/\, min$')

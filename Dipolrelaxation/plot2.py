@@ -49,9 +49,9 @@ print(f'b = {b_ger}')
 print(f'W = a*k_B = {W} J = {W/e_volt} eV')
 
 # Plot
-plt.plot(x, y, 'rx', label='Messwerte')
+plt.plot(x, y, 'mx', label='Messwerte')
 plt.plot(x, g(x, *params), label = 'Ausgleichsgerade')
-plt.ylabel(r'$\ln \, \frac{\int \mathrm{I(T)} \mathrm{dT}}{\mathrm{I}}$')
+plt.ylabel(r'$\ln \, \frac{\int \mathrm{I} \mathrm{dT}}{\mathrm{I}}$')
 plt.xlabel(r'$\dfrac{1}{\mathrm{T}} \,/\, K$')
 plt.grid()
 plt.legend()

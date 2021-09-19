@@ -9,7 +9,7 @@ plots: FORCE | build
 vor: FORCE | build
 	  MATPLOTLIBRC="$$(dirname "$$(pwd)")/default/matplotlibrc" \
 	  TEXINPUTS="$$(dirname "$$(pwd)")/default:" \
-	python vorbereitung.py
+	python Vorbereitung.py
 stab: FORCE | build
 	  MATPLOTLIBRC="$$(dirname "$$(pwd)")/default/matplotlibrc" \
 	  TEXINPUTS="$$(dirname "$$(pwd)")/default:" \

@@ -2,7 +2,7 @@
 \label{sec:Auswertung}
 Alle Berechnungen werden mit dem Programm \glqq Numpy" \cite{numpy}, die Unsicherheiten mit dem Modul \glqq Uncertainties" \cite{uncertainties}, die Ausgleichsrechnungen mit dem Modul \glqq Scipy" \cite{scipy} durchgeführt und die grafischen Darstellungen über das Modul \glqq Matplotlib" \cite{matplotlib} erstellt.
 
-Die Heizraten der jeweiligen Temperaturverläufe, wie sie in den Tabellen [] und [] zu sehen ist, lassen sich durch 
+Die Heizraten der jeweiligen Temperaturverläufe, wie sie in den Tabellen \ref{tab:heiz15} und \ref{tab:heiz20} zu sehen ist, lassen sich durch 
 
 \begin{equation}
     \Delta b_i = \frac{T_i - T_{i-1}}{\SI{60}{s} }
@@ -14,8 +14,23 @@ darstellen. Daraus lassen sich die beiden mittleren Heizraten
     h_1 &=  \SI{1.360(029)}{\kelvin\per\minute}  \\
     h_2 &=  \SI{1.912(056)}{\kelvin\per\minute} \\
 \end{align*}
+berechnen. Der zeitliche Temperaturverlauf der beiden Messreihen ist in den Plots \ref{fig:h1} und \ref{fig:h2} dargestellt, wobei die Steigung des Fits 
+jeweils der Heizrate entspricht. 
 
-berechnen. 
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/char_relaxationszeit_15.pdf}
+    \caption{Temperaturverlauf abhängig von der Zeit (Heizrate 1.36)}
+    \label{fig:h1}
+\end{figure}
+\hfill
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/char_relaxationszeit_20.pdf}
+    \caption{Temperaturverlauf abhängig von der Zeit (Heizrate 1.91).}
+    \label{fig:h2}
+\end{figure}
+\FloatBarrier
 
 Außerdem wird ein Untergrundstrom identifiziert, der über einen Exponetial-Fit der Form 
 \begin{equation}
@@ -23,6 +38,22 @@ Außerdem wird ein Untergrundstrom identifiziert, der über einen Exponetial-Fit
 \end{equation}
 
 beschrieben wird. Dieser Untergrund wird dann von den Werten der beiden Messreihen subtrahiert, damit ein charakteristischer Verlauf des Relaxationsstroms sichtbar wird. 
+Dies ist den Graphen \ref{fig:unter15} und \ref{fig:unter20} dargestellt. 
+\\
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/T1_test.pdf}
+    \caption{Verlauf des Polarisationsstroms mit Fit für Untergrundstrom (Heizrate 1.36).}
+    \label{fig:unter15}
+\end{figure}
+\\
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/T2_test.pdf}
+    \caption{Verlauf des Polarisationsstroms mit Fit für Untergrundstrom (Heizrate 1.91).}
+    \label{fig:unter20}
+\end{figure}
+\FloatBarrier
 
 \subsection{Aktivierungenergie über Polarisationsansatz}
 
@@ -32,7 +63,22 @@ Die so errechneten Werte für die beiden Messreihen ergeben sich zu
     W_{\text{int},1.5} &= \SI{1.46(06)e-19}{\joule} &= \SI{0.91(04)}{\electronvolt} \\
     W_{\text{int},2}   &= \SI{9.4(12)e-20}{\joule} &= \SI{0.59(08)}{\electronvolt} \\
 \end{align*}
+Die Graphen  \ref{fig:int15} und \ref{fig:int20} zeigen den Verlauf $\ln{\int{\frac{I(T)dT}{I}}} $ in Abhängigkeit von $\frac{1}{T}$.
 
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/integration_15.pdf}
+    \caption{Ausgleichsfunktion zur Bestimmung von $W$ (Heizrate 1.36).}
+    \label{fig:int15}
+\end{figure}
+\hfill
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/integration_20.pdf}
+    \caption{Ausgleichsfunktion zur Bestimmung von $W$ (Heizrate 1.91).}
+    \label{fig:int20}
+\end{figure}
+\FloatBarrier
 
 \subsection{Aktivierungenergie über Stromdichte}
 
@@ -48,6 +94,22 @@ durchgeführt, was die Gleichung
     \ln{\tau} = \ln(\tau_0) + \frac{W}{k_B T}
 \end{equation} 
 wiederspiegelt.
+\\
+Die Plots mit den zugehörigen Fits sind in Abbildung \ref{fig:apr15} und \ref{fig:apr20} zu sehen. 
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/W_approx_15.pdf}
+    \caption{$I$ in Abhängigkeit von $T$ mit Fit zur Bestimmung der Aktivierungenergie (Heizrate 1.36).}
+    \label{fig:apr15}
+\end{figure}
+\\
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{W_approx_20.pdf}
+    \caption{$I$ in Abhängigkeit von $T$ mit Fit zur Bestimmung der Aktivierungenergie (Heizrate 1.91).}
+    \label{fig:apr20}
+\end{figure}
+\FloatBarrier
 
 Damit werden die Aktivierungenergien beider Messreihen zu 
 
@@ -56,7 +118,8 @@ Damit werden die Aktivierungenergien beider Messreihen zu
     W_{\text{apr},2}   &= \SI{9.0(5)e-20}{\joule} &= \SI{0.560(033)}{\electronvolt} \\
 \end{align*}
 
-bestimmt.
+bestimmt. 
+
 
 \subsection{Charakteristische Relaxationszeit}
 
@@ -66,8 +129,37 @@ errechneten Heizraten kann die Gleichung
     T^2_\text{max} = bW = \frac{\tau(T_\text{max})}{k_B} 
 \end{equation} 
 verwendet werden, um mit den jeweils maximalen Temperaturen $T_{max,1.5} = \SI{259.2}{\kelvin} $ und $T_{max,2} = \SI{260.5}{\kelvin} $ 
-jweils $\tau_0$  für beide Methoden zu bestimmen. \\
-
+jweils $\tau_0$  für beide Methoden zu bestimmen. Die vier unterschiedlichen Verläufe für $\tau(T)$ sind jeweils in den Graphen \ref{fig:tau_int_15}, 
+\ref{fig:tau_apr_15}, \ref{fig:tau_int_20} und \ref{fig:tau_apr_20} dargestellt. 
+\\
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/relaxationszeit_int_15.pdf}
+    \caption{$\tau(T)$ für Polarisationsansatz bei Heizrate 1.36.}
+    \label{fig:tau_int_15}
+\end{figure}
+\\
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/relaxationszeit_approx_15.pdf}
+    \caption{$\tau(T)$ für Ansatz über Stromdichte bei Heizrate 1.36.}
+    \label{fig:tau_apr_15}
+\end{figure}
+\\
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/relaxationszeit_int_20.pdf}
+    \caption{$\tau(T)$ für Polarisationsansatz bei Heizrate 1.91.}
+    \label{fig:tau_int_20}
+\end{figure}
+\\
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/relaxationszeit_approx_20.pdf}
+    \caption{$\tau(T)$ für Ansatz über Stromdichte bei Heizrate 1.91.}
+    \label{fig:tau_apr_20}
+\end{figure}
+\FloatBarrier
 Für die Werte des Polarisationsansatzes ergeben sich die $\tau_0$ damit zu 
 \begin{align*}
     \tau_{0,1.5} &= \SI{2.5(29)e-12}{\second}\\
@@ -82,3 +174,185 @@ und für den Ansatz über die Stromdichte ergibt sich
 Es lässt sich daraus eine Abhängigkeit der Relaxationszeit von der Aktivierungsenergie und der charakteristischen Relaxationszeit beschreiben, die im Plot [] sichtbar ist. Dabei 
 werden hier die Werte der Integrationsmethode verwendet und es können die Verläufe der beiden Messreihen verglichen werden. 
 
+\subsection{Messwerte}
+
+\begin{table}
+    \centering
+    \caption{Temperaturverlauf mit Heizrate ca. 1,5}
+    \label{tab:heiz15}
+    \sisetup{table-format = 1.2}
+    \begin{tabular}{S S S}
+        \toprule
+        $t \,/\, \si{minute}$ & $T \,/\, \si{\degreeCelsius}$ & $I \,/\, \si{\pico\ampere}$ \\
+        \midrule
+        0 & -61.3 & 0.006  \\
+        1 & -59.5 & 0.005 \\
+        2 & -57.8 & 0.003 \\
+        3 & -56.2 & 0.006 \\
+        4 & -54.4 & 0.005 \\
+        5 & -52.9 & 0.008 \\
+        6 & -51.5 & 0.004 \\
+        7 & -50.0 & -0.007 \\
+        8 & -48.5 & -0.015 \\
+        9 & -47.1 & -0.022 \\
+       10 & -45.8 & -0.05 \\
+       11 & -44.5 & -0.21 \\
+       12 & -43.3 & -0.18 \\
+       13 & -42.0 & -0.12 \\
+       14 & -40.9 & -0.14 \\
+       15 & -39.5 & -0.11 \\
+       16 & -38.4 & -0.12 \\
+       17 & -37.2 & -0.13 \\
+       18 & -36.0 & -0.15 \\
+       19 & -34.9 & -0.17 \\
+       20 & -33.9 & -0.19 \\
+       21 & -32.6 & -0.22 \\
+       22 & -31.4 & -0.25 \\
+       23 & -30.4 & -0.29 \\
+       24 & -29.2 & -0.34 \\
+       25 & -28.2 & -0.39 \\
+       26 & -27.1 & -0.44 \\
+       27 & -25.8 & -0.51 \\
+       28 & -24.6 & -0.58 \\
+       29 & -23.4 & -0.65 \\
+       30 & -22.3 & -0.72 \\
+       31 & -21.1 & -0.79 \\
+       32 & -19.9 & -0.86 \\
+       33 & -18.7 & -0.93 \\
+       34 & -17.1 & -1 \\
+       35 & -15.7 & -1.05 \\
+       36 & -14.3 & -1.1 \\
+       37 & -12.9 & -1.05 \\
+       38 & -11.4 & -1 \\
+       39 & -10.1 & -0.9 \\
+       40 & -08.6 & -0.8 \\
+       \bottomrule
+    \end{tabular}
+    \begin{tabular}{S S S}
+       \toprule
+       $t \,/\, \si{minute}$ & $T \,/\, \si{\degreeCelsius}$ & $I \,/\, \si{\pico\ampere}$ \\
+       \midrule
+       41 & -07.4 & -0.7 \\
+       42 & -05.9 & -0.6 \\
+       43 & -04.3 & -0.55 \\
+       44 & -03.6 & -0.5 \\
+       45 & -01.1 & -0.5 \\
+       46 &  00.5 & -0.5 \\
+       47 &  02.0 & -0.5 \\
+       48 &  03.5 & -0.55 \\
+       49 &  05.0 & -0.6 \\
+       50 &  06.4 & -0.6 \\
+       51 &  07.8 & -0.65 \\
+       52 &  09.1 & -0.65 \\
+       53 &  10.4 & -0.7 \\
+       54 &  11.8 & -0.75 \\
+       55 &  13.1 & -0.75 \\
+       56 &  14.3 & -0.8 \\
+       57 &  15.7 & -0.85 \\
+       58 &  17.0 & -0.9 \\
+       59 &  18.6 & -0.95 \\
+       60 &  20.1 & -1 \\
+       61 &  21.7 & -1.1 \\
+       62 &  23.2 & -1.2 \\
+       63 &  24.8 & -1.3 \\
+       64 &  26.2 & -1.45 \\
+       65 &  27.7 & -1.6 \\
+       66 &  29.2 & -1.7 \\
+       67 &  30.6 & -1.9 \\
+       68 &  31.9 & -2.05 \\
+       69 &  33.2 & -2.25 \\
+       70 &  34.6 & -2.4 \\
+       71 &  35.8 & -2.5 \\
+       72 &  37.1 & -2.75 \\
+       73 &  38.4 & -2.75 \\
+       74 &  39.6 & -2.75 \\
+       75 &  40.2 & -2.75 \\
+       76 &  42.3 & -2.70 \\
+       77 &  43.4 & -2.65 \\
+       78 &  45.0 & -2.6 \\
+       79 &  46.1 & -2.55 \\
+       80 &  47.4 & -2.5 \\
+       81 &  48.9 & -2.4 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+\hfill
+\begin{table}
+    \centering
+    \caption{Temperaturverlauf mit Heizrate ca. 2}
+    \label{tab:heiz20}
+    \sisetup{table-format = 1.2}
+    \begin{tabular}{S S S}
+        \toprule
+        $t \,/\, \si{minute}$ & $T \,/\, \si{\degreeCelsius}$ & $I \,/\, \si{\pico\ampere}$ \\
+        \midrule
+        0 & -57.5 & -0.045  \\
+        1 & -55.4 & -0.047 \\
+        2 & -52.6 & -0.054 \\
+        3 & -49.3 & -0.065 \\
+        4 & -46.1 & -0.079 \\
+        5 & -43.0 & -0.095  \\
+        6 & -40.0 & -0.115  \\
+        7 & -37.2 & -0.145  \\
+        8 & -34.9 & -0.185 \\
+        9 & -32.6 & -0.24 \\
+       10 & -30.6 & -0.32 \\
+       11 & -28.5 & -0.40 \\
+       12 & -26.6 & -0.51 \\
+       13 & -25.0 & -0.64 \\
+       14 & -23.3 & -0.77 \\
+       15 & -21.6 & -0.95 \\
+       16 & -19.8 & -1.1  \\
+       17 & -18.3 & -1.25 \\
+       18 & -16.6 & -1.4 \\
+       19 & -14.3 & -1.5 \\
+       20 & -13.0 & -1.55 \\
+       21 & -11.3 & -1.5 \\
+       22 &  -9.5 & -1.4 \\
+       23 &  -7.6 & -1.35 \\
+       24 &  -6.0 & -1.1 \\
+       25 &  -4.1 & -0.9 \\
+       26 &  -2.5 & -0.75 \\
+       27 &  -0.7 & -0.7 \\
+       28 &   1.3 & -0.7 \\
+       29 &   3.2 & -0.7 \\
+       30 &   5.2 & -0.7 \\
+       \bottomrule
+    \end{tabular}
+    \begin{tabular}{S S S}
+       \toprule
+       $t \,/\, \si{minute}$ & $T \,/\, \si{\degreeCelsius}$ & $I \,/\, \si{\pico\ampere}$ \\
+       \midrule
+       31 &   7.2 & -0.8 \\
+       32 &   9.4 & -0.9 \\
+       33 &  11.3 & -0.95 \\
+       34 &  13.2 & -1.05 \\
+       35 &  15.2 & -1.1 \\
+       36 &  16.9 & -1.2 \\
+       37 &  18.6 & -1.2 \\
+       38 &  20.4 & -1.3 \\
+       39 &  21.9 & -1.4 \\
+       40 &  23.5 & -1.55 \\
+       41 &  25.2 & -1.65 \\
+       42 &  26.8 & -1.8 \\
+       43 &  28.5 & -2.0 \\
+       44 &  30.1 & -2.2 \\
+       45 &  31.8 & -2.45 \\
+       46 &  33.4 & -2.7 \\
+       47 &  35.1 & -3.0 \\
+       48 &  36.8 & -3.2 \\
+       49 &  38.6 & -3.5 \\
+       50 &  40.3 & -3.7 \\
+       51 &  41.9 & -3.8  \\
+       52 &  43.5 & -3.8 \\
+       53 &  45.0 & -3.7 \\
+       54 &  46.6 & -3.5 \\
+       55 &  48.3 & -3.3 \\
+       56 &  49.9 & -3.0 \\
+       57 &  51.7 & -2.8 \\
+       58 &  53.7 & -2.4 \\
+       59 &  55.4 & -2.1 \\
+       60 &  57.2 & -1.8 \\
+        \bottomrule 
+    \end{tabular}
+\end{table}

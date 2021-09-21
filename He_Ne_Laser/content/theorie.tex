@@ -21,7 +21,7 @@ Für die Funktionsweise eines Lasers sind drei Prozesse der Wechselwirkung zwisc
 
     \item spontane Emission:
 
-    Angeregte Atome fallen ohne äußeren Einfluss in ihren Grundzustande zurück und emittieren dabei ein Photon, dessen Energie wieder der Energiedifferenz zwischen den beiden Niveaus entspricht. Die spontane Emission geschieht zufällig und ist nur mit einer Emissionswahrscheinlichkeit geknüpft. 
+    Angeregte Atome fallen ohne äußeren Einfluss in ihren Grundzustande zurück und emittieren dabei ein Photon, dessen Energie wieder der Energiedifferenz zwischen den beiden Niveaus entspricht. Die spontane Emission geschieht zufällig und ist nur an eine Emissionswahrscheinlichkeit geknüpft. 
 
     \item induzierte Emission:
 
@@ -35,8 +35,8 @@ Für die Funktionsweise eines Lasers sind drei Prozesse der Wechselwirkung zwisc
     \label{fig:ver}
 \end{figure}
 
-Damit es zu einer Verstärkung kommen kann, muss eine Besetzungsinversion im aktiven Medium erzeugt werden . Ohne äußeren Einfluss sind die Zustände der Atome im Medium gemäß der Boltzmann-Verteilung verteilt. Atome in Zuständen geringerer Energie kommen also häufiger vor, als welche in Zuständen höherer Energie. In dem Fall wäre die Erzeugung von induzierten Emission unwahrscheinlich und es käme zu keiner Verstärkung.
-Die Energiepumpe sorgt dafür, dass ein Niveau höherer Energie häufiger Besetzt vorkommt, als ein Niveau niedrigerer Energie (Abbildung \ref{fig:inv}). Dadurch steigt die Wahrscheinlichkeit für jedes Photon im Medium, auf ein angeregtes Atom zu treffen und dadurch eine Emission zu induzieren. Je nach Wahl des aktiven Mediums ist auch die Energiedifferenz zwischen diesen beiden Niveaus eine andere. Dadurch ist das Medium entscheident für die Wellenlänge des vom Laser ausgestrahlten Lichtes.
+Damit es zu einer Verstärkung kommen kann, muss eine Besetzungsinversion im aktiven Medium erzeugt werden . Ohne äußeren Einfluss sind die Zustände der Atome im Medium gemäß der Boltzmann-Verteilung verteilt. Atome in Zuständen geringerer Energie kommen also häufiger vor, als welche in Zuständen höherer Energie. in dem Fall wäre die Erzeugung von induzierten Emissionen unwahrscheinlich und es käme zu keiner Verstärkung.
+Die Energiepumpe sorgt dafür, dass ein Niveau höherer Energie häufiger besetzt vorkommt, als ein Niveau niedrigerer Energie (Abbildung \ref{fig:inv}). Dadurch steigt die Wahrscheinlichkeit für jedes Photon im Medium, auf ein angeregtes Atom zu treffen und dadurch eine Emission zu induzieren. Je nach Wahl des aktiven Mediums ist auch die Energiedifferenz zwischen diesen beiden Niveaus eine andere. Dadurch ist das Medium entscheident für die Wellenlänge des vom Laser ausgestrahlten Lichtes.
 
 \begin{figure}
     \centering
@@ -46,13 +46,13 @@ Die Energiepumpe sorgt dafür, dass ein Niveau höherer Energie häufiger Besetz
 \end{figure}
 
 \subsection{Stabilität des Resonators}
-Der Resonator besteht aus zwei Spiegel, welche unterschiedliche Krümmungen besitzen können. Damit das Licht stabil im Resonator oszillieren kann, dürfen die Spiegel nur innerhalb gewisser Abstände zueinander sein. Sonst würde der zu große Verlust zu einem erliegen der Laser-Tätigkeit führen. In dem Fall (kleine Spiegel gegenüber dem Abstand) wird der hauptsächliche Verlust durch Beugung verursacht.
+Der Resonator besteht aus zwei Spiegeln, welche unterschiedliche Krümmungen besitzen können. Damit das Licht stabil im Resonator oszillieren kann, dürfen die Spiegel nur innerhalb gewisser Abstände zueinander sein. Sonst würde der zu große Verlust zu einem erliegen der Laser-Tätigkeit führen. in diesem Fall (kleine Spiegel gegenüber dem Abstand) wird der hauptsächliche Verlust durch Beugung verursacht.
 Für die Stabilität des Resonators muss die Ungleichung
 \begin{equation}
     \label{eqn:g}
    0 \leq g_1 \cdot g_2 \leq 1
 \end{equation}
-erfüllt sein. Dabei ist $g$ der Stabilitätsparameter und setzt sich aus dem Abstand beider Spiegel $L$ und dem jeweilgen Krümmungsradius $b$ zusammen:
+erfüllt sein. Dabei ist $g$ der Stabilitätsparameter, der sich aus dem Abstand beider Spiegel $L$ und dem jeweilgen Krümmungsradius $b$ zusammensetzt:
 \begin{equation}
     g_i = 1-\frac{L}{b_i}.
 \end{equation}
@@ -60,7 +60,7 @@ erfüllt sein. Dabei ist $g$ der Stabilitätsparameter und setzt sich aus dem Ab
 Für die Krümmungsradien
 
 \begin{align*}
-    b_1 & = \inf \\
+    b_1 & = \infty \\
     b_2 & = \SI{100}{\centi\m} \\
     b_3 & = \SI{140}{\centi\m}
 \end{align*}
@@ -128,7 +128,7 @@ bestimmen. Dabei ist $g$ die Gitterkonstante, $d_k$ der Abstand vom Mittelpukt b
 
 \subsection{Polarisation}
 
-Licht kann unterschiedlich polarisiert sein. Trifft linear Polarisiertes auf einen Polarisationsfilter, so wird in Abhängigkeit des Winkels $\phi$ zwischen Filter und Polarisationsrichtung nur ein Teil des Lichtes durch den Filter gelangen. Die Intensität der durchgelassenen Strahlung lässt sich über das \textit{Gesetz von Malus}
+Licht kann unterschiedlich polarisiert sein. Trifft linear polarisiertes Licht auf einen Polarisationsfilter, so wird in Abhängigkeit des Winkels $\phi$ zwischen Filter und Polarisationsrichtung nur ein Teil des Lichtes durch den Filter gelangen. Die Intensität der durchgelassenen Strahlung lässt sich über das \textit{Gesetz von Malus}
 \begin{equation}
     \label{eqn:pol}
     I = I_0\cos^2{(\phi)}

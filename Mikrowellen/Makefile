@@ -15,7 +15,7 @@ daempf: FORCE | build
 	python fr_we_dae.py
 
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
-build/main.pdf: plots mode daempf
+build/main.pdf:
 
 build/main.pdf: FORCE | build
 	  TEXINPUTS=build: \

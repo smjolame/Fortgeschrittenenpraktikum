@@ -6,8 +6,8 @@ Alle Berechnungen werden mit dem Programm \glqq Numpy" \cite{numpy}, die Unsiche
 \subsection{Bestimmung des Magnetfeldes}
 
 Mit einer Hallsonde wird das Magnetfeld $B$ abhängig vom angelegten Strom $I$ gemessen, wobei der Strom schrittweise variiert wird. Die Messdaten
-sind in Tabelle[] zu sehen. Der Verlauf der magnetischen Flussdichte in Abhängigkeit der Stromstärke ist zusammen mit einer Ausgleichskurve 
-in Plot[] zu sehen. Die Funktion der Ausgleichskurve ist dabei 
+sind in Tabelle \ref{tab:mag_verlauf} zu sehen. Der Verlauf der magnetischen Flussdichte in Abhängigkeit der Stromstärke ist zusammen mit einer Ausgleichskurve 
+in Plot \ref{fig:mag_verlauf} zu sehen. Die Funktion der Ausgleichskurve ist dabei 
 \begin{equation}
      f(x) = ax^3 + bx^2 + cx + d\,.
 \end{equation}
@@ -54,7 +54,22 @@ Damit ergeben sich die Parameter
 
 \subsection{Blaue Spektrallinie}
 
-In der Abbildung[] sind zwei blaue Spektrallinien übereinander gezeigt. Der untere Teil zeigt die Spektrallinien des blauen Lichts mit 
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{fotos/blau_0.JPG}
+    \caption{Blaue Spektrallinie ohne Magnetfeld.}
+    \label{fig:blau_0}
+\end{figure}
+\hfill
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{fotos/blau_pi.JPG}
+    \caption{$\pi$-polarisierte blaue Spektrallinie.}
+    \label{fig:blau_pi}
+\end{figure}
+\FloatBarrier
+
+In den Abbildungen \ref{fig:blau_0} und \ref{fig:blau_pi} sind zwei blaue Spektrallinien übereinander gezeigt. Der untere Teil zeigt die Spektrallinien des blauen Lichts mit 
 $\SI{480}{\nano\metre}$ Wellenlänge im ungestörten Zustand. Der obere Teil zeigt die Spektrallinien des $\pi$-polarisierten Lichts bei 
 angelegtem Magnetfeld. Zur Vermessung der Bilder wird Paint verwendet, um die Abstände der Maxima zueinander in der Einheit Pixel zu messen. 
 Dabei ist $\Delta s$ der Abstand zwischen den Maxima im ungestörten Zustand und $\delta s$ dieser Abstand beim $\pi$-polarisierten Licht. 
@@ -92,7 +107,7 @@ wurden, wird beim Fehler von $\delta\lambda$ mit einer Messunsicherheit von 4 Pi
     \end{tabular}
 \end{table}
 
-Aus den Messwerten, wie sie in Tabelle[] aufgeführt sind, kann dann ein Mittelwert für $\delta\lambda_{\pi,\text{blau}}$ gebildet werden. 
+Aus den Messwerten, wie sie in Tabelle \ref{tab:maxima_blau_pi} aufgeführt sind, kann dann ein Mittelwert für $\delta\lambda_{\pi,\text{blau}}$ gebildet werden. 
 Es ergibt sich ein Mittelwert von 
 \begin{equation}
     \delta\lambda_{\pi,\text{blau}} = 2.77 0.11
@@ -100,8 +115,23 @@ Es ergibt sich ein Mittelwert von
 
 Desweiteren wird für die blaue Spektrallinie der $\sigma-$Übergang untersucht. Hierfür ist das Vorgehen prinzipiell Dasselbe. Es werden wieder 
 die gleichen Abstände der Maxima gemessen, nur diesmal wird das $\sigma$-polarisierte Licht betrachtet. Die beiden Spektrallinien werden wieder 
-zum Vergleich übereinander gelegt, wie in Abbildung [] zu sehen ist. Die Messdaten zusammen mit den errechneten $\delta\lambda_{\sigma,\text{blau}}$
-sind analog zur Vorherigen in der Tabelle[] dargestellt.\\
+zum Vergleich übereinander gelegt, wie in Abbildung \ref{fig:blau_sigma} zu sehen ist. Die Messdaten zusammen mit den errechneten $\delta\lambda_{\sigma,\text{blau}}$
+sind analog zur Vorherigen in der Tabelle \ref{tab:maxima_blau_sigma} dargestellt.\\
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{fotos/blau_0.JPG}
+    \caption{Blaue Spektrallinie ohne Magnetfeld.}
+    \label{fig:blau_0}
+\end{figure}
+\hfill
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{fotos/blau_sigma.JPG}
+    \caption{$\sigma$-polarisierte blaue Spektrallinie.}
+    \label{fig:blau_sigma}
+\end{figure}
+\FloatBarrier
 
 \begin{table}
     \centering
@@ -136,8 +166,22 @@ bestimmen.
 
 \subsection{Rote Spektrallinie}
 
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{fotos/rot_0.JPG}
+    \caption{Rote Spektrallinie ohne Magnetfeld.}
+    \label{fig:rot_0}
+\end{figure}
+\hfill
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{fotos/rot_sigma.JPG}
+    \caption{$\sigma$-polarisierte rote Spektrallinie.}
+    \label{fig:rot_sigma}
+\end{figure}
+\FloatBarrier
 Für die rote Spektrallinie wird ebenfalls die $\sigma-$Linie untersucht, indem das gleiche Verfahren, wie für die blaue Spektrallinie 
-angewendet wird. Abbildung [] zeigt Hierfür ebenfalls die beiden Spektrallinien, ungestört und im Magnetfeld, übereinander. In der Tabelle []
+angewendet wird. Abbildung \ref{fig:rot_sigma} zeigt Hierfür ebenfalls die beiden Spektrallinien, ungestört und im Magnetfeld, übereinander. In der Tabelle \ref{tab:maxima_rot_sigma}
 sind auch wieder analog die Messdaten aufgeführt.\\
 
 \begin{table}
@@ -173,7 +217,7 @@ Aus diesen ergibt sich für den Mittelwert von $\delta\lambda_{\sigma,\text{rot}
 \subsection{Landé-Faktoren}
 
 Die Berechnung der Landé-Faktoren erfolgt über die Gleichung \ref{eqn:lande}. Die Aus den Messdaten berechneten Landé-Faktoren und  
-sind in der Tabelle [] dargestellt. Der Fehler für den Landé-Faktor lässt sich dabei über 
+sind in der Tabelle \ref{tab:lande} dargestellt. Der Fehler für den Landé-Faktor lässt sich dabei über 
 \begin{equation}
     F(g) = \frac{hc}{\lambda^2 \mu _\text{B}} \sqrt{\left ( \frac{1}{B} F(\delta \lambda) \right)^2}
 \end{equation} bestimmen. 

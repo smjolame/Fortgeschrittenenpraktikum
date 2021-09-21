@@ -59,7 +59,7 @@ del_lamb_rot = del_lamb(r_sig_err, r_roh_err, Delta_lamb_rot) #pm
 del_lamb_blau_sig = np.mean(del_lamb_blau_sig) #pm
 del_lamb_blau_pi = np.mean(del_lamb_blau_pi) #pm
 del_lamb_rot_sig = np.mean(del_lamb_rot) #pm
-#print('del_lamb_blau_sig_mean',del_lamb_blau_sig,'\n\n', 'del_lamb_blau_pi_mean',del_lamb_blau_pi,'\n\n', 'del_lamb_rot_sig_mean', del_lamb_rot_sig,'\n\n' )
+print('del_lamb_blau_sig_mean',del_lamb_blau_sig,'\n\n', 'del_lamb_blau_pi_mean',del_lamb_blau_pi,'\n\n', 'del_lamb_rot_sig_mean', del_lamb_rot_sig,'\n\n' )
 
 #lande:
 

@@ -69,17 +69,17 @@ Damit ergeben sich die Parameter
 \end{figure}
 \FloatBarrier
 
-In den Abbildungen \ref{fig:blau_0} und \ref{fig:blau_pi} sind zwei blaue Spektrallinien übereinander gezeigt. Der untere Teil zeigt die Spektrallinien des blauen Lichts mit 
-$\SI{480}{\nano\metre}$ Wellenlänge im ungestörten Zustand. Der obere Teil zeigt die Spektrallinien des $\pi$-polarisierten Lichts bei 
+In den Abbildungen \ref{fig:blau_0} und \ref{fig:blau_pi} sind zwei blaue Spektrallinien übereinander gezeigt. Der obere Teil zeigt die Spektrallinien des blauen Lichts mit 
+$\SI{480}{\nano\metre}$ Wellenlänge im ungestörten Zustand. Der untere Teil zeigt die Spektrallinien des $\pi$-polarisierten Lichts bei 
 angelegtem Magnetfeld. Zur Vermessung der Bilder wird Paint verwendet, um die Abstände der Maxima zueinander in der Einheit Pixel zu messen. 
 Dabei ist $\Delta s$ der Abstand zwischen den Maxima im ungestörten Zustand und $\delta s$ dieser Abstand beim $\pi$-polarisierten Licht. 
 Aus diesen Werten lassen sich dann anhand der Gleichung 
 
 \begin{equation}
-    \delta\lambda = \frac{1}2 \frac{\delta s}{\Delta s} \Delta\lambda_D\,,
+    \delta\lambda = \frac{1}2 \frac{\delta s}{\Delta s} \Delta\lambda_D
 \end{equation}
 
-wobei für die blaue Spektrallinie $\Delta\lambda_D = \SI{26.5}{\pico\metre}$ ist. Da die Abstände in Pixeln in diesem Fall per Hand abgelesen 
+die Wellenlängenverschiebung bestimmen, wobei für die blaue Spektrallinie $\Delta\lambda_D = \SI{26.5}{\pico\metre}$ ist. Da die Abstände in Pixeln in diesem Fall per Hand abgelesen 
 wurden, wird beim Fehler von $\delta\lambda$ mit einer Messunsicherheit von 4 Pixeln gerechnet. \\
 
 \begin{table}
@@ -89,7 +89,7 @@ wurden, wird beim Fehler von $\delta\lambda$ mit einer Messunsicherheit von 4 Pi
     %\sisetup{table-format = 1.2}
     \begin{tabular}{S S S S}
         \toprule
-        $\text{Ordnung}$ & $\Delta s \, /\text{Pixel}$  & $\delta s \, /\text{Pixel}$ & $\delta \lambda \, / \, \si{\nano\meter}$  \\
+        $\text{Ordnung}$ & $\Delta s \, /\text{Pixel}$  & $\delta s \, /\text{Pixel}$ & $\delta\lambda \, / \, \si{\nano\meter}$  \\
         \midrule
         1  & 116(4) & 25(4)  & 2.904(476) \\
         2  & 122(4) & 25(4)  & 2.761(450) \\
@@ -108,7 +108,7 @@ wurden, wird beim Fehler von $\delta\lambda$ mit einer Messunsicherheit von 4 Pi
 \end{table}
 
 Aus den Messwerten, wie sie in Tabelle \ref{tab:maxima_blau_pi} aufgeführt sind, kann dann ein Mittelwert für $\delta\lambda_{\pi,\text{blau}}$ gebildet werden. 
-Es ergibt sich ein Mittelwert von 
+Dieser ergibt sich zu 
 \begin{equation}
     \delta\lambda_{\pi,\text{blau}} = \SI{2.77(11)}{\pico\m}
 \end{equation}
@@ -140,7 +140,7 @@ sind analog zur Vorherigen in der Tabelle \ref{tab:maxima_blau_sigma} dargestell
     \sisetup{table-format = 1.2}
     \begin{tabular}{S S S S}
         \toprule
-        $\text{Ordnung}$ & $\Delta s \, /\text{Pixel}$  & $\delta s \, /\text{Pixel}$ & $\delta \lambda \, / \, \si{\nano\meter}$  \\
+        $\text{Ordnung}$ & $\Delta s \, /\text{Pixel}$  & $\delta s \, /\text{Pixel}$ & $\delta\lambda \, / \, \si{\nano\meter}$  \\
         \midrule
         1  & 116(4)  & 52(4) & 6.041(509) \\
         2  & 122(4)  & 59(4) & 6.516(491) \\
@@ -191,7 +191,7 @@ sind auch wieder analog die Messdaten aufgeführt.\\
     \sisetup{table-format = 1.2}
     \begin{tabular}{S S S S}
         \toprule
-        $\text{Ordnung}$ & $\Delta s \, /\text{Pixel}$  & $\delta s \, /\text{Pixel}$ & $\delta \lambda \, / \, \si{\nano\meter}$  \\
+        $\text{Ordnung}$ & $\Delta s \, /\text{Pixel}$  & $\delta s \, /\text{Pixel}$ & $\delta\lambda \, / \, \si{\nano\meter}$  \\
         \midrule
         1  & 114(4) & 40(4)  &  8.578(909) \\ 
         2  & 114(4) & 42(4)  &  9.007(914) \\
@@ -216,7 +216,7 @@ Aus diesen ergibt sich für den Mittelwert von $\delta\lambda_{\sigma,\text{rot}
 
 \subsection{Landé-Faktoren}
 
-Die Berechnung der Landé-Faktoren erfolgt über die Gleichung \ref{eqn:lande}. Die Aus den Messdaten berechneten Landé-Faktoren und  
+Die Berechnung der Landé-Faktoren erfolgt über die Gleichung \ref{eqn:lande}. Die Aus den Messdaten berechneten Landé-Faktoren  
 sind in der Tabelle \ref{tab:lande} dargestellt. Der Fehler für den Landé-Faktor lässt sich dabei über 
 \begin{equation}
     F(g) = \frac{hc}{\lambda^2 \mu _\text{B}} \sqrt{\left ( \frac{1}{B} F(\delta \lambda) \right)^2}

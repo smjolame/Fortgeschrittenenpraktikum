@@ -5,7 +5,7 @@ Alle Berechnungen werden mit dem Programm \glqq Numpy" \cite{numpy}, die Unsiche
 
 \subsection{Untersuchung des Hohleiterfeldes}
 
-Die vom Oszillografen abgelesenen Werte sind in Tabelle \ref{tab:mod} einsehbar. 
+Die vom Oszilloskop abgelesenen Werte sind in Tabelle \ref{tab:mod} einsehbar. 
 Aus diesen Werten lässt sich ein Modus-Diagramm erstellen. Dazu werden jeweils in die Daten eine Funktion gemäß einer Parabel
 \begin{equation}
     f(U) = aU^2+bU+c
@@ -28,7 +28,7 @@ So ergeben sich die in Abbildung \ref{fig:mode} dargestellten Moden. Die aus dem
 \begin{figure}
     \centering
     \includegraphics[width=1.2\textwidth]{build/mode.pdf}
-    \caption{Modus-Diagramm der drei Moden.}
+    \caption{Modus-Diagramm von drei Moden.}
     \label{fig:mode}
 \end{figure}
 
@@ -101,6 +101,7 @@ bestimmen.
 Aus den Werten der Tabelle \ref{tab:wel} lässt sich die Wellenlänge über den zweifachen Abstand benachbarter Minima berechnen.
 Über den Mittelwert dieser Ergebnisse ergibt sich eine Wellenlänge von
 \begin{equation}
+    \label{eqn:well}
     \lambda_h = \SI{48.9(1)}{\milli\m} .
 \end{equation}
 
@@ -146,6 +147,14 @@ bestimmen.
 
     \end{tabular}
 \end{table}
+
+Aus der gemessenen Frequenz in Tabelle \ref{tab:wel} und der bestimmten Wellenlänge \eqref{eqn:well} lässt sich die Phasengeschwindigkeit über
+\begin{equation}
+    \label{eqn:v_p}
+    v_{p} = f \cdot \lambda_h = (\num{1.469(003)})\, c
+\end{equation} 
+bestimmen. 
+
 
 
 Die Ergebnisse der Dämpfungsmessungen sind in Tabelle \ref{tab:daempf} dargestellt. Aus den Werten der Herstellerangaben lässt sich die 

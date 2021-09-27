@@ -5,6 +5,7 @@ from uncertainties.unumpy import uarray
 from uncertainties import unumpy as unp
 from scipy.stats import sem
 from scipy.optimize import curve_fit
+import scipy.constants as sc 
 
 einst_lin1 = np.linspace(0,5)
 einst_lin2 = np.linspace(0,2.4)
@@ -16,6 +17,11 @@ a = ufloat(22.860,0.046)
 c = 3 * 10**11 #mm/s
 f_rech = c * unp.sqrt((1/lamb)**2+(1/(2*a))**2) * 10**(-6) #MHz
 print('f gemessen:', f_mess,'MHz;' , 'Wellenlänge:', lamb, 'mm;' , 'f berechnet:' , f_rech,'MHz' )
+
+v = f_mess *10**6 * lamb *10**(-3)
+v = v/sc.c
+
+print('Phasengeschwindigkeit:', v)
 
 P = np.array([0,2,4,6,8,10]) #dB
 einst = np.array([2.69, 2.93, 3.11, 3.27, 3.44, 3.58]) #mm

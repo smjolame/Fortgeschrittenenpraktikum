@@ -35,9 +35,8 @@ Für die Funktionsweise eines Lasers sind drei Prozesse der Wechselwirkung zwisc
     \label{fig:ver}
 \end{figure}
 
-Damit es zu einer Verstärkung kommen kann, muss eine Besetzungsinversion im aktiven Medium erzeugt werden. Ohne äußeren Einfluss sind die Zustände der Atome im Medium Boltzmann verteilt. Atome in Zuständen geringerer Energie kommen also häufiger vor, als welche in Zuständen höherer Energie. in dem Fall wäre die Erzeugung von induzierten Photonen unwahrscheinlich und es käme zu keiner Verstärkung.
-Die Energiepumpe sorgt dafür, dass ein Niveau höherer Energie häufiger besetzt vorkommt, als ein Niveau niedrigerer Energie (Abbildung \ref{fig:inv}). Dadurch steigt die Wahrscheinlichkeit für jedes Photon im Medium, auf ein angeregtes Atom zu treffen und dadurch eine Emission zu induzieren. Je nach Wahl des aktiven Mediums ist auch die Energiedifferenz zwischen diesen beiden Niveaus eine andere. Dadurch ist das Medium entscheident für die Wellenlänge des vom Laser ausgestrahlten Lichtes.
-
+Damit es zu einer Verstärkung kommen kann, muss eine Besetzungsinversion im aktiven Medium erzeugt werden. Ohne äußeren Einfluss sind die Zustände der Atome im Medium Boltzmann verteilt. Atome in Zuständen geringerer Energie kommen also häufiger vor, als welche in Zuständen höherer Energie. In dem Fall wäre die Erzeugung von induzierten Photonen unwahrscheinlich und es käme zu keiner Verstärkung.
+Die Energiepumpe sorgt indirekt dafür, dass ein Niveau höherer Energie häufiger besetzt vorkommt, als ein Niveau niedrigerer Energie (Abbildung \ref{fig:inv}). Dies lässt sich anhand eines Drei-Niveau-Systems verdeutlichen. Seien $Z_1$, $Z_2$ und $Z_3$ drei Zustände mit jeweils unterschiedlichen Energie. Dabei soll $Z_1$ der Grundzustand und $Z_3$ der Zustand höchter Energie sein. $Z_3$ soll sehr kurzlebig sein. Durch die Energiepumpe werden die $Z_1$ in den Zustand $Z_3$ gehoben. Nach kurzer Zeit, über Abgabe von Wärme, gehen diese Zustände in $Z_2$ über. So können sich viele Atome in diesem Zustand befinden, ohne dass die Energiepumpe eine Emission bei jenen induziert. Bei einem He-Ne-Laser gibt es unzählig verschiedene Zustände, zwischen denen diese Übergänge durch Photon-Emission von statten gehen. 
 \begin{figure}
     \centering
     \includegraphics[width=6cm]{Bilder/Inversion.PNG}
@@ -97,7 +96,7 @@ wobei $H_m$ das m-te Hermitepolynom und $\omega$ die Strahldivergenz darstellt. 
 
 \subsection{Helium-Neon-Laser}
 Im Fall des He-Ne-Lasers wird als aktives Medium ein Gemisch aus gasförmigem Helium und Neon in einem Verhältnis von ca 5:1 verwendet.
-Über elektrische Entladungen werden die Helium Atome in angeregte Zustände versetzt. Diese Atome stoßen wiederum mit den Neon-Atomen, welche ihrerseits in angeregte Zustände versetzt werden (Stoß 2. Art). Dadurch kommt es zu der notwendigen Besetzungsinversion. Die hauptsächlichen Zustandsübergänge sind in Abbildung \ref{fig:linie} dargestellt.
+Über elektrische Entladungen werden die Helium Atome in angeregte Zustände versetzt. Diese Atome stoßen wiederum mit den Neon-Atomen, welche ihrerseits in angeregte Zustände versetzt werden (Stoß 2. Art). Dadurch kommt es zu der notwendigen Besetzungsinversion. Die hauptsächlichen Zustandsübergänge sind in Abbildung \ref{fig:linie} dargestellt. Dabei ist der $3\text{s}_2 \to 2\text{p}_4$ wichtig. Das $2\text{p}_4$ zerfällt innerhalb von $\SI{10}{\nano\s}$ in das $1\text{s}$-Niveau. Atome in diesem Zustand werden über die Gasentladungen wieder in die beiden höherenergetischen Zustände versetzt.
 
 \begin{figure}
     \centering
@@ -106,7 +105,7 @@ Im Fall des He-Ne-Lasers wird als aktives Medium ein Gemisch aus gasförmigem He
     \label{fig:linie}
 \end{figure}
 
-Der gesamte Aufbau eins He-Ne-Laser ist in Abbildung \ref{fig:he} dargestellt.
+Der gesamte Aufbau eines He-Ne-Lasers ist in Abbildung \ref{fig:he} dargestellt.
 
 \begin{figure}
     \centering
@@ -131,7 +130,7 @@ bestimmen. Dabei ist $g$ die Gitterkonstante, $d_k$ der Abstand vom Mittelpukt b
 Licht kann unterschiedlich polarisiert sein. Trifft linear polarisiertes Licht auf einen Polarisationsfilter, so wird in Abhängigkeit des Winkels $\phi$ zwischen Filter und Polarisationsrichtung nur ein Teil des Lichtes durch den Filter gelangen. Die Intensität der durchgelassenen Strahlung lässt sich über das \textit{Gesetz von Malus}
 \begin{equation}
     \label{eqn:pol}
-    I = I_0\cos^2{(\phi)}
+    I = I_0\cos^2{(\phi-\phi_0)}
 \end{equation}
 bestimmen.
 %In knapper Form sind die physikalischen Grundlagen des Versuches, des Messverfahrens, sowie sämtliche für die Auswertung erforderlichen Gleichungen darzustellen. (Keine Herleitung)

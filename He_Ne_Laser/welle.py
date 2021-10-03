@@ -44,3 +44,4 @@ sem_ = sem([lamb1.n, lamb2.n, lamb3.n, lamb4.n])
 
 lamb_fin_u = ufloat(lamb_fin.n, sem_)
 print(lamb_fin_u)
+print(lamb1, lamb2, lamb3, lamb4)

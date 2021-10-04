@@ -92,16 +92,31 @@ def N(t,N_0,lamb,I):
     return N_0*np.exp(-lamb*t)+I
 
 kanal_bereinigt = kanal[5:]
-
 kanal_bereinigt = np.append(kanal[1], kanal_bereinigt)
+t_bereinigt = t[5:]
+t_bereinigt = np.append(t[1], t_bereinigt)
 
-cut = 150
-params3, cov3 = curve_fit(N, t[:cut] , kanal_bereinigt[:cut] ,p0=[400,0.5,10])
+
+
+kanal_bereinigt_U = kanal_bereinigt - I_Untergrund
+kanal_bereinigt_U = kanal_bereinigt[kanal_bereinigt>=0]
+t_bereinigt_U = t_bereinigt[kanal_bereinigt>=0]
+
+
+params3, cov3 = curve_fit(N, t_bereinigt_U , kanal_bereinigt_U ,p0=[400,0.5,10])
 params3_err3 = uarray(params3, np.sqrt(np.diag(cov3)))
 print('Parameter der Fitfunktion (N_0, lamb, I):', params3_err3)
 
-plt.errorbar(t[:cut], kanal[:cut],c = 'k', yerr = np.sqrt(kanal[:cut]),fmt='_',capsize=3, label ='Messwerte', ecolor = 'y' )
-plt.plot(t_lin, N(t_lin, params3[0],params3[1], 8.1), label = 'Ausgleichskurve', c = 'b')
+print('Summer der Stoppsiganle aus VKA:', sum(kanal))
+
+kanal = kanal - I_Untergrund
+kanal_U = kanal[kanal>=0]
+
+
+t_U = t[kanal>=0]
+
+plt.errorbar(t_U, kanal_U,c = 'k', yerr = np.sqrt(kanal_U),fmt='_',capsize=3, label ='Messwerte', ecolor = 'y' )
+plt.plot(t_lin, N(t_lin, params3[0],params3[1], params3[2]), label = 'Ausgleichskurve', c = 'b')
 plt.yscale('log')
 plt.xlabel(r'$t \:/\: \mu s $' )
 plt.ylabel(r'$N$')
@@ -114,7 +129,7 @@ tau = 1/params3_err3[1]
 print('Lebensdauer:', tau)
 
 lebensdauer_lit = 2.197 #micro sekunden
-print('Summer der Stoppsiganel aus VKA:', sum(kanal))
+
 print('Abweichunge der Lebendauer:', abw(lebensdauer_lit,tau))
 ##Curvefit
 #def BeispielFunktion(x,a,b):

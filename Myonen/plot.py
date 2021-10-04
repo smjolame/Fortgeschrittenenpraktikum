@@ -114,10 +114,12 @@ kanal_bereinigt = kanal[5:]
 
 kanal_bereinigt = np.append(kanal[1], kanal_bereinigt)
 
-cut = 132
+cut = 150
 params3, cov3 = curve_fit(N, t[:cut] , kanal_bereinigt[:cut] ,p0=[400,0.5,10])
 params3_err3 = uarray(params3, np.sqrt(np.diag(cov3)))
 print('Parameter der Fitfunktion (N_0, lamb, I):', params3_err3)
+
+
 
 # plt.errorbar(t[:cut], kanal[:cut], yerr = np.sqrt(kanal[:cut]),fmt='_',capsize=3, label ='Messwerte')
 # plt.plot(t_lin, N(t_lin, *params3))

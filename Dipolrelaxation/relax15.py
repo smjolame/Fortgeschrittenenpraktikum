@@ -23,8 +23,8 @@ print(f'T_0 = {T_0}')
 # Berechnung char. relaxationszeit
 k_B = 1.380649 * 10**(-23) #J/K
 T_max = 260 #K
-W_int = ufloat(1.17*10**(-19),0.04*10**(-19))
-W_approx = ufloat(1.26*10**(-19), 0.06*10**(-19))
+W_int = ufloat(1.46*10**(-19),0.06*10**(-19))
+W_approx = ufloat(1.14*10**(-19), 0.04*10**(-19))
 
 tau_max_approx = k_B * T_max**2 / (b*W_approx)
 tau_max_int = k_B * T_max**2 / (b*W_int)

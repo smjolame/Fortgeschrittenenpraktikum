@@ -12,9 +12,8 @@ b_unt = 0.0525
 c_unt = 0.80
 
 t, T, I = np.genfromtxt('data/relax_strom_2.txt', unpack=True, delimiter=',')
-#I_offset = 3.5 #pA
-I = -I #+ I_offset # strom vorzeichen (definition) + offsett
-I = I * 10**(-12) #ampere
+#I_offset = 3.5 #pA #+ I_offset # strom vorzeichen (definition) + offsett
+I = -I * 10#**(-12) #ampere
 T = T + 273.15 # Kelvin
 
 def f(x, a, b, c):

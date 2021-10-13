@@ -2,7 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 from uncertainties import ufloat
-import uncertainties.unumpy as unp
+import uncertainties.unumpy as unp 
+
 
 t, T, I = np.genfromtxt('data/relax_strom_2.txt', unpack=True, delimiter=',')
 T = T + 273.15 # Kelvin
@@ -23,8 +24,8 @@ print(f'T_0 = {T_0}')
 # Berechnung char. relaxationszeit
 k_B = 1.380649 * 10**(-23) #J/K
 T_max = 260 #K
-W_int = ufloat(1.17*10**(-19),0.04*10**(-19))
-W_approx = ufloat(1.26*10**(-19), 0.06*10**(-19))
+W_int = ufloat(1.08*10**(-19),0.05*10**(-19))
+W_approx = ufloat(1.43*10**(-19), 0.04*10**(-19))
 
 tau_max_approx = k_B * T_max**2 / (b*W_approx)
 tau_max_int = k_B * T_max**2 / (b*W_int)
@@ -40,6 +41,8 @@ print(f'tau_0 für int: {tau_0_int}')
 # Plot
 plt.plot(t/60, T, 'mx', label='Messwerte')
 plt.plot(t/60, f(t, *params), label='Ausgleichsgerade')
+#plt.plot(relax15.t/60, relax15.T, 'mx', label='Messwerte')
+#plt.plot(relax15.t/60, relax15.f(relax15.t, *relax15.params), label='Ausgleichsgerade')
 plt.ylabel(r'$T \,/\, K$')
 plt.xlabel(r'$t \,/\, min$')
 plt.grid()

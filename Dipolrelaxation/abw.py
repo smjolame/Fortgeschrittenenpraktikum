@@ -12,9 +12,9 @@ def abw(exact,approx):
 W_lit = 0.66 #eV
 
 W_1_15 = ufloat(0.91,0.04)
-W_1_2 =  ufloat(0.59,0.08)
-W_2_15 = ufloat(0.524,0.033)
-W_2_2 =  ufloat(0.560,0.033)
+W_1_2 =  ufloat(0.709,0.023)
+W_2_15 = ufloat(0.674,0.030)
+W_2_2 =  ufloat(0.893,0.023)
 
 
 print(abw(W_lit,W_1_15))

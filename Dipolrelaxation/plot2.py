@@ -4,10 +4,12 @@ from uncertainties import ufloat
 from scipy.optimize import curve_fit
 from scipy import integrate
 
+
+
 # values
 k_B = 1.380649 * 10**(-23) #J/K
 e_volt = 1.602176634 * 10**(-19) #J
-a_unt = 2.7e-06
+a_unt = 2.7*10**(-6)
 b_unt = 0.0525
 c_unt = 0.80
 

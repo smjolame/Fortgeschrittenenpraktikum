@@ -4,7 +4,6 @@ from scipy.optimize import curve_fit
 from uncertainties import ufloat
 import uncertainties.unumpy as unp 
 
-
 t, T, I = np.genfromtxt('data/relax_strom_2.txt', unpack=True, delimiter=',')
 T = T + 273.15 # Kelvin
 t = t*60 #s

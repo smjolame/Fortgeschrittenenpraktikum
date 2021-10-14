@@ -11,6 +11,7 @@ from scipy.stats import sem
 from scipy.integrate import trapz
 from scipy import constants
 from uncertainties.unumpy import exp
+from scipy import integrate
 
 
 
@@ -206,7 +207,7 @@ T_dep= T[25:45]
 # Integration
 I_int = np.zeros(len(I_dep))
 for i, I in enumerate(I_dep):
-    I_int[i] = trapz(I_dep[i:], x = T_dep[i:])
+    I_int[i] = integrate.trapz(I_dep[i:], x = T_dep[i:])
 I_int[-1] = I_dep[-1]
 print('I_int =', I_int)
 
@@ -229,10 +230,86 @@ print(f'W = a*k_B = {W} J = {W/e_volt} eV')
 
 # Plot
 plt.plot(x, y, 'mx', label='Messwerte')
-plt.plot(x, g(x, *params), label = 'Lineare Regression')
+plt.plot(x, g(x, *params), label = 'Ausgleichsgerade')
 plt.ylabel(r'$\ln \, \frac{\int \mathrm{I} \mathrm{dT}}{\mathrm{I}}$')
 plt.xlabel(r'$\dfrac{1}{\mathrm{T}} \,/\, K$')
 plt.grid()
 plt.legend()
 plt.tight_layout()
 plt.savefig('build/integration_15.pdf')
+
+######################################################################################################################################################
+##I_dep = I[10:30] - f(T[10:30], a_unt, b_unt, c_unt)*10**(-12) #ampere
+##T_dep= T[10:30]
+#
+## Integration
+#I3_int = np.zeros(len(I3_dep))
+#for i, I3 in enumerate(I3_dep):
+#    I3_int[i] = integrate.trapz(I3_dep[i:], x = T3_dep[i:])
+#I3_int[-1] = I3_dep[-1]
+#print('I_int =', I3_int)
+#
+## Ausgleichsgerade
+#def g(x, a, b):
+#    return a*x + b
+#
+#y3 = np.log(I3_int/I3_dep)
+#x3 = 1/T3_dep
+#
+##params, cov = curve_fit(g, x, y)
+##errors = np.sqrt(np.diag(cov))
+##a_ger = ufloat(params[0], errors[0])
+##b_ger = ufloat(params[1], errors[1])
+##W = a_ger * k_B
+#
+#print(f'a = {a_ger}')
+#print(f'b = {b_ger}')
+#print(f'W = a*k_B = {W} J = {W/e_volt} eV')
+#
+## Plot
+#plt.plot(x3, y3, 'mx', label='Messwerte')
+#plt.plot(x3, g(x3, *params), label = 'Ausgleichsgerade')
+#plt.ylabel(r'$\ln \, \frac{\int \mathrm{I} \mathrm{dT}}{\mathrm{I}}$')
+#plt.xlabel(r'$\dfrac{1}{\mathrm{T}} \,/\, K$')
+#plt.grid()
+#plt.legend()
+#plt.tight_layout()
+#plt.savefig('build/integration_15.pdf')
+#
+#
+##I4_dep = I[10:30] - f(T[10:30], a3_unt, b3_unt, c3_unt)*10**(-12) #ampere
+#T4_dep= T[10:30]
+#
+## Integration
+#I4_int = np.zeros(len(I4_dep))
+#for i, I in enumerate(I4_dep):
+#    I4_int[i] = integrate.trapz(I4_dep[i:], x4 = T4_dep[i:])
+#I4_int[-1] = I4_dep[-1]
+#print('I4_int =', I4_int)
+#
+## Ausgleichsgerade
+#def g4(x4, a, b):
+#    return a*x + b
+#
+#y4 = np.log(I4_int/I4_dep)
+#x4 = 1/T4_dep
+#
+#params, cov = curve_fit(g4, x4, y4)
+#errors = np.sqrt(np.diag(cov))
+#a4_ger = ufloat(params[0], errors[0])
+#b4_ger = ufloat(params[1], errors[1])
+#W4 = a4_ger * k_B
+#
+#print(f'a = {a4_ger}')
+#print(f'b = {b4_ger}')
+#print(f'W4 = a*k_B = {W4} J = {W/e_volt} eV')
+#
+## Plot
+#plt.plot(x4, y4, 'mx', label='Messwerte')
+#plt.plot(x4, g4(x4, *params), label = 'Ausgleichsgerade')
+#plt.ylabel(r'$\ln \, \frac{\int \mathrm{I} \mathrm{dT}}{\mathrm{I}}$')
+#plt.xlabel(r'$\dfrac{1}{\mathrm{T}} \,/\, K$')
+#plt.grid()
+#plt.legend()
+#plt.tight_layout()
+#plt.savefig('build/integration_20.pdf')
